@@ -7,7 +7,7 @@ class sprite {
   color effetCouleur = -1; // pour connaitre la couleur dectée et changer la couleur de l'image
   color effetFantome = 255; // alpha de tint pour l'effet couleur
   int [] tailleOrigine;  
-
+  boolean fixerRotation;
   IntList colorStored, colorStoredFloor; 
 
   sprite( String SpriteName, int costumeNumber) { // choisir le nom du sprite, le nombre de costume
@@ -28,13 +28,11 @@ class sprite {
   void affiche() {
     push(); // délimite le champ d'action entre push et pop
     translate(x, y); // déplace le centre du programme sur le chat
-    rotate(angleRadian); // oriente le chat
-
+    if (!fixerRotation) rotate(angleRadian); // oriente le chat
     colorTouch(); // lance la detection de couleur
     tint(effetCouleur, effetFantome); // l'effet couleur
     imageMode(CENTER); // le centre de l'image devient le centre 
     image(costume[currentImage], 0, 0 );// met l'image en son centre (à rajouter une void pour déplacer le centre ??)
-
 
     pop(); //fin du champ d'action
   }
@@ -210,29 +208,31 @@ class sprite {
   }
 }
 
+
 //---Main fonction----
 
 void attendre(float t) { // blocs attendre en sec
   delay(int (t * 1000)); // delay en millisecondes, ici converti depuis les secondes
 }
 
+void selectionerCouleur(){
+  println(get(mouseX, mouseY));
+  push();
+  textSize(16);
+  fill(0,255,0);
+  text(get(mouseX, mouseY), 20,20);
+  pop();
+}
 
-/*
 
- private void quandLeProgrammeDemarre() { // ---void contenant les threads asynchrones----
- 
- 
- new Thread(new Runnable() { // créer un nouveau thread qui se lance au démarrage du jeu
- public void run() {
- //----mettre les actions ici;
- for (int i = 0; i < 10; i++) { // boucle répéter 10 fois le i<10 correspond au nombre de répétition
- 
- attendre(1); // attendre 1 seconde
- }
- 
- //----fin des actions
- }
- }
- ).start(); // lancement du thread
- }// ------------ fin des threads-------------
- */
+/*class clonesClass extends sprite{
+  
+  clonesClass (String costumeName, int costumeNumb){
+    super(costumeName, costumeNumb);
+  }
+  
+  void action(){
+   affiche();
+   
+  }
+}*/
