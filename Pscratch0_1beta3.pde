@@ -1,34 +1,28 @@
-sprite cat; // créer un nouveau sprite
-
+Cat cat; // créer un nouveau sprite
+Scene scene;
 
 void setup() { // --- quand le programme démarre
   size(800, 600); // la taille de l'écran de jeu (largeur hauteur)
 
   //-----initialiser les sprites
-  cat= new sprite("cat", 2); // initialiser le nouveau sprite. Toute les actions doivent être appellées ainsi : nomdusprite.action();
-  cat.changerTaille(50);
-
-  //-----les threads au démarrage  
-  //thread(""); // lance tous les threads
+  cat= new Cat("cat", 2); //  nom du ou des costumes, nombre de costumes
+  scene = new Scene("Blue Sky", 1);  // scène, peut recevoir une image.
 }
 
 
 
 void draw () {//-----programme répété indéfiniment-----
 
-  background(0); // scène, peut recevoir une couleur unique ou une image.
-  cat.affiche();
-
+  scene.arrierePlan();
+  cat.draw();
 }//----fin de la répétition infinie -----
 
 
 void keyPressed() { // ---quand une touche du clavier est pressée---
-  
 } // ----fin de  : quand une touche du clavier est pressée---
 
 
 void keyReleased() { // ---quand une touche du clavier est relachée---
-  
 }// ----fin de  : quand une touche du clavier est relachée---
 
 
