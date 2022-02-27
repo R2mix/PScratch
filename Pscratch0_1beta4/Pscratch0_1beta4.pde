@@ -20,7 +20,6 @@ void draw () {//-----programme répété indéfiniment-----
 
 
 void keyPressed() { // ---quand une touche du clavier est pressée---
-  arreterUnSon(0);
 } // ----fin de  : quand une touche du clavier est pressée---
 
 
@@ -29,7 +28,6 @@ void keyReleased() { // ---quand une touche du clavier est relachée---
 
 
 void mousePressed() { // ---quand la souris est pressée---
-jouerUnSon(0);
 }// ----fin de  : quand la souris  est pressée---
 
 void mouseReleased() { // ---quand la souris est relachée---
