@@ -210,7 +210,7 @@ class Sprite {
   }
 
   //====================================== sensor =====================================================================================================================
- 
+
   void setSpriteColorDetectionTo(boolean b) {
     spriteColorDetection = b;
   }
@@ -362,6 +362,8 @@ class Scene {
 
   PImage [] scene; // tableau pour stocker les différentes images du sprite
   int currentBackdrop = 0;
+  color colorEffectValue = -1; // pour connaitre la couleur dectée et changer la couleur de l'image
+  color gostEffectValue = 255; // alpha de tint pour l'effet couleur
 
   Scene( String folder) { // choisir le nom du sprite, le nombre de costumes
     String path = sketchPath()+ "/data/" + folder; // search for folderpath
@@ -391,7 +393,10 @@ class Scene {
   }
 
   void backdrops() {
-    background(scene[currentBackdrop] );
+    push();
+    tint(colorEffectValue, gostEffectValue); // l'effet couleur
+    image(scene[currentBackdrop],0,0 );
+    pop();
   }
   void switchBackdropTo( int c) { // change le costumes du personnage
     currentBackdrop = c;
@@ -399,6 +404,28 @@ class Scene {
   void nextBackdrop() { // change le costumes du personnage
     currentBackdrop++;
     currentBackdrop = currentBackdrop%scene.length;
+  }
+  void changeColorEffectBy(int col) {
+    // change la taille de tous les costumess chargés en %
+    colorEffectValue -= col * 0.01 * 16777215;
+  }
+  void setColorEffectTo(int col) {
+    // change la taille de tous les costumess chargés en %
+    colorEffectValue = -1 + int( col * 0.01 * -16777215);
+  }
+  void changeGhostEffectBy(int a) {
+    // change la taille de tous les costumess chargés en %
+    gostEffectValue -= a;
+    constrain(gostEffectValue, 0, 255);
+  }
+  void setGhostEffectTo(int a) {
+    // change la taille de tous les costumess chargés en %
+    gostEffectValue = 255 - a;
+    constrain(gostEffectValue, 0, 255);
+  }
+  void clearGraphicEffects() {
+    gostEffectValue = 255;
+    colorEffectValue = -1;
   }
 }
 
