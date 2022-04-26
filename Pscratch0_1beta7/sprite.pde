@@ -28,6 +28,7 @@ class Sprite {
 
     String path = sketchPath()+ "/data/" + folder; // search for folderpath
     String[] filenames = listFileNames(path); // search filenames
+    java.util.Arrays.sort(filenames); //Sorts all files by name
     printArray(filenames); // print names
     int totalNumberOfCostumes = 0;
     int loadedCostume = 0;
@@ -104,25 +105,25 @@ class Sprite {
     direction = a;
     angleRadian = radians(direction);
   }
-  void pointToward(float xx, float yy) { // oriente le personnage vers deux coordonnées
+  void pointTowards(float xx, float yy) { // oriente le personnage vers deux coordonnées
     angleRadian = atan2(yy - y, xx - x);
   }
-  void pointToward(String mouseIn) { // oriente le personnage vers deux coordonnées
+  void pointTowards(String mouseIn) { // oriente le personnage vers deux coordonnées
     if (mouseIn == "mouse")angleRadian = atan2(mouseY - y, mouseX - x);
   }
-  void pointToward(Sprite o) { // oriente le personnage vers deux coordonnées
+  void pointTowards(Sprite o) { // oriente le personnage vers deux coordonnées
     angleRadian = atan2(o.y - y, o.x - x);
   }
   void changeXBy(float add) {
     x += add;
   }
-  void setX(float a) {
+  void setXTo(float a) {
     x = a;
   }
   void changeYBy(float add) {
     y += add;
   }
-  void setY(float a) {
+  void setYTo(float a) {
     y = a;
   }
   void ifOnEdgeBounce() { // rebondit sur les différents bord
@@ -179,7 +180,7 @@ class Sprite {
       costumes[i].resize( costumes[i].width + spriteSize, 0); //met leur taille en pourcentage  // costumes[i].resize( costumes[i].width * tailleSprite/100, costumes[i].height * tailleSprite/100);
     }
   }
-  void setSize(int t) {
+  void setSizeTo(int t) {
     // change la taille de tous les costumess chargés en %
     spriteSize = t;
     for (int i = 0; i < costumes.length; i++) { // répeter pour la longueur de la liste de charger les images contenant costumes et le numéro correspondant à leur position dans le tableau
@@ -320,6 +321,8 @@ int totalNumberOfSounds, loadedSound;
 void soundFolder(String folder) {
   String path = sketchPath()+ "/data/" + folder; // search for folderpath
   String[] filenames = listFileNames(path); // search filenames
+  java.util.Arrays.sort(filenames); //Sorts all files by name
+  printArray(filenames); // print names
 
   for (int i = 0; i < filenames.length; i++) {
     String extention = filenames[i].substring(filenames[i].indexOf(".")); // separate extention for separate img to sounds and prevent otherfiles
@@ -368,6 +371,7 @@ class Scene {
   Scene( String folder) { // choisir le nom du sprite, le nombre de costumes
     String path = sketchPath()+ "/data/" + folder; // search for folderpath
     String[] filenames = listFileNames(path); // search filenames
+    java.util.Arrays.sort(filenames); //Sorts all files by name
     printArray(filenames); // print names
     int totalNumberOfScenes = 0;
     int loadedScene = 0;
@@ -395,7 +399,7 @@ class Scene {
   void backdrops() {
     push();
     tint(colorEffectValue, gostEffectValue); // l'effet couleur
-    image(scene[currentBackdrop],0,0 );
+    image(scene[currentBackdrop], 0, 0 );
     pop();
   }
   void switchBackdropTo( int c) { // change le costumes du personnage
