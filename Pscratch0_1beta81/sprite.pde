@@ -3,10 +3,10 @@ import processing.sound.*;                  //sound lib
 public class Sprite extends Thread {
 
   public float x, y, direction, angleRadian, spriteWidth, spriteHeight; // basics informations of the sprite
-  public  int costume, spriteSize = 100, sens=1;                                // actual costume and size of the sprite
+  public  int costume, spriteSize = 100, sens=1;                        // actual costume and size of the sprite
   public color colorEffectValue = -1;                                   // defaut color effect value (no coloration)
   public color gostEffectValue = 255;                                   // defaut ghost effect value (visible)
-  private boolean  dragable, display = true;           // boolean for rotation, dragable and is displaying, (private) call it by the named functions
+  private boolean  dragable, display = true;                            // boolean for rotation, dragable and is displaying, (private) call it by the named functions
   private IntList colorStored;                                          // list for storing color during the calculation
   public boolean spriteColorDetection = true;                           // enable/disable color scaning in case of high cpu/gpu usage (especially big sprites),
   // |---> warning : this disable the posibility of touching color with this sprite
@@ -57,11 +57,13 @@ public class Sprite extends Thread {
     push();       
     if (spriteColorDetection && display) spriteColorDetector();         // detect the bg color this is why is before image and need to be in draw not in a thread
     translate(x, y);                                                    // move to x and y, using translate cause rotation
+    push();                                                             // double push for prevent reverse dialog
     rotationStyle();                                                    // rotate for orientation of the sprite
     scale(spriteSize *0.01 * sens, spriteSize * 0.01 );                 // scale when change size and left right orientation
     tint(colorEffectValue, gostEffectValue);                            // color and ghost effect
     imageMode(CENTER);                                                  // center the image like scratch does
     if (display)image(costumes[costume], 0, 0 );                        // showing the image (can be hiding and disable the color detection)
+    pop(); 
     spriteSay();                                                        // void for speaking of thinking are permantly checking is somthing to think/say
     spriteThink();                                                      // need to be here in case of using say in a thread and not in draw
     pop(); 
@@ -205,13 +207,11 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rectMode(CENTER);
-      rect( spriteWidth/2, - spriteHeight/2, spriteSays.length() * (spriteWidth/16), spriteWidth/4, 25);          // bubble
-      triangle(spriteWidth/3, - spriteHeight/2, spriteWidth/3, -spriteHeight/4, spriteWidth/2, -spriteHeight/2 ); // quote
+      rect( 0, - (spriteHeight/2) - 48, spriteSays.length() * 11, 48, 48); // bubble
+      triangle((spriteWidth/2)+16, - spriteHeight/2, spriteWidth/3, -spriteHeight/4, spriteWidth/2, -spriteHeight/2 ); // quote
       fill(0);
-      textSize(spriteWidth/8);
-      textAlign(CENTER);
-      text(spriteSays, spriteWidth/2, - spriteHeight/2);
+      textSize(16);
+      text(spriteSays, 20, - (spriteHeight/2) - 24);
       pop();
     }
   }
@@ -230,13 +230,12 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rectMode(CENTER);
-      rect( spriteWidth/2, - spriteHeight/2, spriteThinks.length() * (spriteWidth/16), spriteWidth/4, 25);
-      circle( spriteWidth/3, - spriteHeight/3, spriteWidth/16);
+      rect( 0, - (spriteHeight/2) - 48, spriteThinks.length() * 11, 48, 48);  // bubble
+      circle( (spriteWidth/2)+16, - spriteHeight/2, spriteWidth/8);
+      circle( (spriteWidth/3)+16, - spriteHeight/3, spriteWidth/8);
       fill(0);
-      textSize(spriteWidth/8);
-      textAlign(CENTER);
-      text(spriteThinks, spriteWidth/2, - spriteHeight/2);
+      textSize(16);
+      text(spriteThinks, 20, - (spriteHeight/2) - 24);
       pop();
     }
   }
