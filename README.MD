@@ -50,7 +50,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` |
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0);goTo("mouse");goTo("randomPosition");goTo(Sprite);` |
 | ![glide](web/assets/sprite_go_to.png) | `glide(0, 0);glide("mouse");glide("randomPosition");glide(Sprite);` |
-| ![point in direction](web/assets/sprite_point_in_direction.png) | `pointInDirectionTo(0);` |
+| ![point in direction](web/assets/sprite_point_in_direction.png) | `pointInDirection(0);` |
 | ![point towards](web/assets/sprite_point_in_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` |
 | ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` |
 | ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` |
@@ -82,4 +82,4 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![clear graphic effect](web/assets/clear_graphic_effect.png) | `clearGraphicEffects()` |
 | ![show](web/assets/show.png) | `show()` |
 | ![hide](web/assets/hide.png) | `hide()` |
-| ![ currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop()` |
+| ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop()` |
