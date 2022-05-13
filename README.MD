@@ -60,5 +60,5 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![x](web/assets/sprite_x_positon.png) | `x;` |
 | ![y](web/assets/sprite_y_position.png) | `y;` |
 | ![direction](web/assets/sprite_direction.png) | `direction;` |
-| ![set rotation style](web/assets/set rotation style.png) | `setRotationStyle("left-right");setRotationStyle("don't rotate");setRotationStyle("all around");` |
+| ![set rotation style](web/assets/set_rotation_style.png) | `setRotationStyle("left-right");setRotationStyle("don't rotate");setRotationStyle("all around");` |
 
