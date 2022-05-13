@@ -57,9 +57,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![change y by](web/assets/sprite_change_y_by.png) | `changeYBy(10);` |
 | ![set y to](web/assets/sprite_set_y_to.png) | `setYTo(0);` |
 | ![on edge bounce](web/assets/sprite_if_on_edge_bounce.png) | `onEdgeBounce();` |
-| ![x](web/assets/sprite_x_positon.png) | `x;` |
-| ![y](web/assets/sprite_y_position.png) | `y;` |
-| ![direction](web/assets/sprite_direction.png) | `direction;` |
+| ![x](web/assets/sprite_x_positon.png) | `x` |
+| ![y](web/assets/sprite_y_position.png) | `y` |
+| ![direction](web/assets/sprite_direction.png) | `direction` |
 | ![set rotation style](web/assets/set_rotation_style.png) | `setRotationStyle("left-right");setRotationStyle("don't rotate");setRotationStyle("all around");` |
 
 
@@ -69,17 +69,32 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | :-: | :-: |
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` |
-| ![switch costume to](web/assets/stage_switch_costume_to.png) | `switchCostumeTo(1)` |
+| ![switch costume to](web/assets/stage_switch_costume_to.png) | `switchCostumeTo(1);` |
 | ![next costume](web/assets/stage_next_costume.png) | `nextCostume()` |
-| ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1)` |
-| ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop()` |
-| ![change size by](web/assets/change_size_by.png) | `changeSizeBy(25)` |
-| ![set Size To](web/assets/set_size_to.png) | `setSizeTo(25)` |
-| ![change color](web/assets/stage_change_color_by.png) | `changeColorEffectBy(25)` |
-| ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0)` |
-| ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25)` |
-| ![set ghost](web/assets/stage_set_ghost.png) | `setGhostEffectTo(10)` |
-| ![clear graphic effect](web/assets/clear_graphic_effect.png) | `clearGraphicEffects()` |
-| ![show](web/assets/show.png) | `show()` |
-| ![hide](web/assets/hide.png) | `hide()` |
-| ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop()` |
+| ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` |
+| ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` |
+| ![change size by](web/assets/change_size_by.png) | `changeSizeBy(25);` |
+| ![set Size To](web/assets/set_size_to.png) | `setSizeTo(25);` |
+| ![change color](web/assets/stage_change_color_by.png) | `changeColorEffectBy(25);` |
+| ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0);` |
+| ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25);` |
+| ![set ghost](web/assets/stage_set_ghost.png) | `setGhostEffectTo(10);` |
+| ![clear graphic effect](web/assets/clear_graphic_effect.png) | `clearGraphicEffects();` |
+| ![show](web/assets/show.png) | `show();` |
+| ![hide](web/assets/hide.png) | `hide();` |
+| ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` |
+
+
+#### Sensing
+
+| Scratch | Processing |
+| :-: | :-: |
+| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite);touch(x,y,l,h);touch("mouse");touch("edge");` |
+| ![distanceTo](web/assets/distanceTo.png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
+| ![set drag mode](web/assets/set_drag_mode.png) | `setDragMode(true);` |
+| ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` |
+| ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` |
+| ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` |
+| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  |
+| ![stage current ?](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` |
+
