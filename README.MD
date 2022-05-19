@@ -51,7 +51,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0);goTo("mouse");goTo("randomPosition");goTo(Sprite);` |
 | ![glide](web/assets/sprite_go_to.png) | `glide(0, 0);glide("mouse");glide("randomPosition");glide(Sprite);` |
 | ![point in direction](web/assets/point_towards.png) | `pointInDirection(0);` |
-| ![point towards](web/assets/sprite_point_in_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` |
+| ![point towards](web/assets/point_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` |
 | ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` |
 | ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` |
 | ![change y by](web/assets/sprite_change_y_by.png) | `changeYBy(10);` |
@@ -79,7 +79,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0);` |
 | ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25);` |
 | ![set ghost](web/assets/stage_set_ghost.png) | `setGhostEffectTo(10);` |
-| ![clear graphic effect](web/assets/clear_graphic_effect.png) | `clearGraphicEffects();` |
+| ![clear graphic effect](web/assets/clearGraphics.png) | `clearGraphicEffects();` |
 | ![show](web/assets/show.png) | `show();` |
 | ![hide](web/assets/hide.png) | `hide();` |
 | ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` |
@@ -90,7 +90,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | Scratch | Processing |
 | :-: | :-: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite);touch(x,y,l,h);touch("mouse");touch("edge");` |
-| ![distanceTo](web/assets/distanceTo.png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
+| ![distanceTo](web/assets/distance .png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
 | ![set drag mode](web/assets/set_drag_mode.png) | `setDragMode(true);` |
 | ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` |
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` |
