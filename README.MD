@@ -1,4 +1,4 @@
-# PScratch-lib-0.8.1
+# PScratch-lib-0.8.2
 
 PScratch is a package for processing that give the possibility to use basic scratch function for learning processing
 
