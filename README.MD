@@ -90,8 +90,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | Scratch | Processing |
 | :-: | :-: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite);touch(x,y,l,h);touch("mouse");touch("edge");` |
-| ![distanceTo](web/assets/distance .png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
-| ![set drag mode](web/assets/set_drag_mode.png) | `setDragMode(true);` |
+| ![distanceTo](web/assets/distance.png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
+| ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` |
 | ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` |
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` |
