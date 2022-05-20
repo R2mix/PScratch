@@ -74,7 +74,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` |
 | ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` |
 | ![change size by](web/assets/change_size.png) | `changeSizeBy(25);` |
-| ![set Size To](web/assets/setSize.png) | `setSizeTo(25);` |
+| ![set Size To](web/assets/sprite_set_size_to.png) | `setSizeTo(25);` |
 | ![change color](web/assets/stage_change_color_by.png) | `changeColorEffectBy(25);` |
 | ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0);` |
 | ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25);` |
