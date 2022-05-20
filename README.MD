@@ -49,7 +49,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0);goTo("mouse");goTo("randomPosition");goTo(Sprite);` | Place the sprite somewhere : Can be coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
-| ![glide](web/assets/sprite_go_to.png) | `glide(1, 0, 0);glide(1, "mouse");glide(1, "randomPosition");glide(1, Sprite);` | The sprite will move during 1 second somewhere : Can be coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
+| ![glide](web/assets/sprite_go_to.png) | `glide(1, 0, 0);glide(1, "mouse");glide(1, "randomPosition");glide(1, Sprite);` | The sprite will move during 1 second somewhere : Can be coordonates x and Y, an other sprite, a random position in the screen or to the mouse (it might not be call in draw void)|
 | ![point in direction](web/assets/point_towards.png) | `pointInDirection(0);` | Orienting the sprite in a direction in degrees. 0 is the default orientation |
 | ![point towards](web/assets/point_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` | Orienting the sprite towars a : coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
 | ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` | Change the coodonate X of the sprite in pixel |
@@ -66,25 +66,25 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 #### Looks
 
 | Scratch | Processing |
-| :-: | :-: |
-| ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` |
-| ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` |
-| ![switch costume to](web/assets/switch_costume.png) | `switchCostumeTo(1);` |
-| ![next costume](web/assets/nextCostume.png) | `nextCostume()` |
-| ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` |
-| ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` |
-| ![change size by](web/assets/change_size.png) | `changeSizeBy(25);` |
-| ![set Size To](web/assets/sprite_set_size_to.png) | `setSizeTo(25);` |
-| ![change color](web/assets/stage_change_color_by.png) | `changeColorEffectBy(25);` |
-| ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0);` |
-| ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25);` |
-| ![set ghost](web/assets/stage_set_ghost.png) | `setGhostEffectTo(10);` |
-| ![clear graphic effect](web/assets/clearGraphics.png) | `clearGraphicEffects();` |
-| ![show](web/assets/show.png) | `show();` |
-| ![hide](web/assets/hide.png) | `hide();` |
-| ![cuurentCostume](web/assets/costume.png) | `costume` |
-| ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` |
-| ![size](web/assets/size.png) | `spriteSize` `spriteWidth` `spriteHeight` |
+| :-: | :-: | :-: |
+| ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` | Display a dialog bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
+| ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` | Display a thinking bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
+| ![switch costume to](web/assets/switch_costume.png) | `switchCostumeTo(1);` | Change the sprite costume to a specified costume number |
+| ![next costume](web/assets/nextCostume.png) | `nextCostume()` | Change the costume of the sprite to the next costume in the costumes list |
+| ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` | Change the stage backdrop to a specified backdrop number |
+| ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` | Change the stage backdrop to the next backdrop in the backdrops list |
+| ![change size by](web/assets/change_size.png) | `changeSizeBy(25);` | Change the size of the sprite to a bigger or , with negativ numbers to a smaller size |
+| ![set Size To](web/assets/sprite_set_size_to.png) | `setSizeTo(25);` | Set the size of the sprite in purcent |
+| ![change color](web/assets/stage_change_color_by.png) | `changeColorEffectBy(25);` | Change all the color of the sprite to another, each 100 the color will reset from the start |
+| ![set color](web/assets/stage_set_color.png) | `setColorEffectTo(0);` | Set all the color of the sprite to another, 0 to 100 |
+| ![change ghost](web/assets/stage_change_ghost_by.png) | `changeGhostEffectBy(25);` | Add transparency to the sprite at 255 it will be totally invisible |
+| ![set ghost](web/assets/stage_set_ghost.png) | `setGhostEffectTo(10);`  | Set the transparency to the sprite at 255 it will be totally invisible |
+| ![clear graphic effect](web/assets/clearGraphics.png) | `clearGraphicEffects();` | Cancel all the graphics effects like color and ghost |
+| ![show](web/assets/show.png) | `show();` | Show the sprite and can be detected and can detect other things |
+| ![hide](web/assets/hide.png) | `hide();` | Hide the sprite and can't be detected and can't detect other things |
+| ![cuurentCostume](web/assets/costume.png) | `costume` | Return the current costume of the sprite |
+| ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` | Return the current backdrop of the stage |
+| ![size](web/assets/size.png) | `spriteSize` `spriteWidth` `spriteHeight` | Return the size or the width or the height of the sprite |
 
 
 
