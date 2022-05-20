@@ -65,7 +65,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Looks
 
-| ------ Scratch   ------| Processing | Description|
+| --------Scratch-------- | Processing | Description|
 | :-: | :-: | :-: |
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` | Display a dialog bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` | Display a thinking bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
@@ -90,7 +90,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Sensing
 
-| ------ Scratch   ------| Processing |
+| --------Scratch-------- | Processing |
 | :-: | :-: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite);touch(x,y,l,h);touch("mouse");touch("edge");` |
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
@@ -104,7 +104,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Sounds
 
-| ------ Scratch   ------| Processing |
+| --------Scratch-------- | Processing |
 | :-: | :-: |
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` |
