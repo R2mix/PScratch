@@ -70,7 +70,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` |
 | ![switch costume to](web/assets/switch_costume.png) | `switchCostumeTo(1);` |
-| ![next costume](web/assets/nextcostume.png) | `nextCostume()` |
+| ![next costume](web/assets/nextCostume.png) | `nextCostume()` |
 | ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` |
 | ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` |
 | ![change size by](web/assets/change_size.png) | `changeSizeBy(25);` |
@@ -84,6 +84,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![hide](web/assets/hide.png) | `hide();` |
 | ![cuurentCostume](web/assets/costume.png) | `costume` |
 | ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` |
+| ![size](web/assets/size.png) | `spriteSize` `spriteWidth` `spriteHeight` |
+
 
 
 #### Sensing
@@ -99,3 +101,16 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  |
 | ![stage current ?](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` |
 
+
+#### Sounds
+
+| Scratch | Processing |
+| :-: | :-: |
+| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` |
+| ![playSound](web/assets/startsound.png) | `playSound(0);` |
+| ![stopAllSound](web/assets/stopAllsounds.png) | `stopAllSound();` `stopSound(0);` |
+| ![changeSoundEffect](web/assets/changeeffect.png) | `changePitchEffectBy(100);``changePanEffectBy(0);`|
+| ![setSoundEffect](web/assets/setEffect.png) | `setPitchEffectBy(10);``setPanEffectBy(0);` |
+| ![clearsoundeffect](web/assets/clearsoundeffect.png) | `clearSoundEffects();` |
+| ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10);` |
+| ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100);` |
