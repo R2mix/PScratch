@@ -45,22 +45,22 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 | Scratch | Processing | Description|
 | :-: | :-: | :-: |
-| ![move](web/assets/sprite_move_steps.png) | `move(10);` | 10 : how many pixels the sprite move in the current direction|
-| ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | 15 : how many degrees the sprite is rotation to the left |
-| ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | 15 : how many degrees the sprite is rotation to the right |
+| ![move](web/assets/sprite_move_steps.png) | `move(10);` | how many pixels the sprite move in the current direction|
+| ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
+| ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0);goTo("mouse");goTo("randomPosition");goTo(Sprite);` | Place the sprite somewhere : Can be coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
 | ![glide](web/assets/sprite_go_to.png) | `glide(1, 0, 0);glide(1, "mouse");glide(1, "randomPosition");glide(1, Sprite);` | The sprite will move during 1 second somewhere : Can be coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
-| ![point in direction](web/assets/point_towards.png) | `pointInDirection(0);` |
-| ![point towards](web/assets/point_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` |
-| ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` |
-| ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` |
-| ![change y by](web/assets/sprite_change_y_by.png) | `changeYBy(10);` |
-| ![set y to](web/assets/sprite_set_y_to.png) | `setYTo(0);` |
-| ![on edge bounce](web/assets/sprite_if_on_edge_bounce.png) | `onEdgeBounce();` |
-| ![x](web/assets/sprite_x_positon.png) | `x` |
-| ![y](web/assets/sprite_y_position.png) | `y` |
-| ![direction](web/assets/sprite_direction.png) | `direction` |
-| ![set rotation style](web/assets/rotation.png ) | `setRotationStyle("left-right");setRotationStyle("don't rotate");setRotationStyle("all around");` |
+| ![point in direction](web/assets/point_towards.png) | `pointInDirection(0);` | Orienting the sprite in a direction in degrees. 0 is the default orientation |
+| ![point towards](web/assets/point_towards.png) | `pointTowards(0,0);pointTowards("mouse");pointTowards(Sprite);` | Orienting the sprite towars a : coordonates x and Y, an other sprite, a random position in the screen or to the mouse |
+| ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` | Change the coodonate X of the sprite in pixel |
+| ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` | Set the coodonate X of the sprite in pixel |
+| ![change y by](web/assets/sprite_change_y_by.png) | `changeYBy(10);` | Change the coodonate Y of the sprite in pixel |
+| ![set y to](web/assets/sprite_set_y_to.png) | `setYTo(0);` | Set the coodonate Y of the sprite in pixel |
+| ![on edge bounce](web/assets/sprite_if_on_edge_bounce.png) | `onEdgeBounce();` | If the sprite touch the edge, it will automatically turn in the oposite direction |
+| ![x](web/assets/sprite_x_positon.png) | `x` | Return the current coordonate X of the sprite |
+| ![y](web/assets/sprite_y_position.png) | `y` | Return the current coordonate Y of the sprite |
+| ![direction](web/assets/sprite_direction.png) | `direction` | Return the current direction of the sprite |
+| ![set rotation style](web/assets/rotation.png ) | `setRotationStyle("left-right");setRotationStyle("don't rotate");setRotationStyle("all around");` | Change the style of the rotation of the sprite, "left-right" the sprite will move like mirror, "don't rotate" the sprite will no be visualy affected by the orientation and "all around" is the defaut 360° rotation. This is purelly visual and don't affect the mouvements of the sprite |
 
 
 #### Looks
