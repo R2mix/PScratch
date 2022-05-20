@@ -65,7 +65,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Looks
 
-| Scratch | Processing |
+| Scratch | Processing | Description|
 | :-: | :-: | :-: |
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` | Display a dialog bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` | Display a thinking bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
