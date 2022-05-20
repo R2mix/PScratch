@@ -69,8 +69,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | :-: | :-: |
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` |
-| ![switch costume to](web/assets/stage_switch_costume_to.png) | `switchCostumeTo(1);` |
-| ![next costume](web/assets/stage_next_costume.png) | `nextCostume()` |
+| ![switch costume to](web/assets/switch_costume.png) | `switchCostumeTo(1);` |
+| ![next costume](web/assets/nextcostume.png) | `nextCostume()` |
 | ![switch backdrop to](web/assets/stage_switch_backdrop_to.png) | `stage.switchBackdropTo(1);` |
 | ![next backdrop](web/assets/stage_next_backdrop.png) | `stage.nextBackdrop();` |
 | ![change size by](web/assets/change_size.png) | `changeSizeBy(25);` |
@@ -82,6 +82,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![clear graphic effect](web/assets/clearGraphics.png) | `clearGraphicEffects();` |
 | ![show](web/assets/show.png) | `show();` |
 | ![hide](web/assets/hide.png) | `hide();` |
+| ![cuurentCostume](web/assets/costume.png) | `costume` |
 | ![currentBackdrop](web/assets/stage_backdrop_number.png) | `stage.backdrop` |
 
 
