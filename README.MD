@@ -105,7 +105,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 #### Sounds
 
 | Scratch | Processing | Description |
-| :---: | :---: |
+| :---: | :---: | :---: |
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
 | ![stopAllSound](web/assets/stopAllsounds.png) | `stopAllSound();` `stopSound(0);` | Stop all sound, stop a specific sound |
