@@ -91,7 +91,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 #### Sensing
 
 | Scratch | Processing | Description |
-| :---: | :---: |
+| :---: | :---: | :---: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if`. |
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
