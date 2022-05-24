@@ -44,7 +44,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 #### Motion
 
 | Scratch | Processing | Description|
-| :------------: | :-: | :------------: |
+| :---: | :---: | :---: |
 | ![move](web/assets/sprite_move_steps.png) | `move(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
@@ -65,8 +65,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Looks
 
-| -----------Scratch----------- | Processing | -----------Description-----------|
-| :-: | :-: | :-: |
+| Scratch | Processing | Description |
+| :---: | :---: | :---: |
 | ![say](web/assets/say.png) | `say("Hellow");say("Hellow", 2);` | Display a dialog bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
 | ![think](web/assets/think.png) | `think("Hellow");think("Hellow", 2);` | Display a thinking bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
 | ![switch costume to](web/assets/switch_costume.png) | `switchCostumeTo(1);` | Change the sprite costume to a specified costume number |
@@ -90,8 +90,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Sensing
 
-| -----------Scratch----------- | Processing |
-| :-: | :-: |
+| Scratch | Processing |
+| :---: | :---: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite);touch(x,y,l,h);touch("mouse");touch("edge");` |
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse");distanceTo(Sprite);distanceTo(x, y);` |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` |
@@ -104,8 +104,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Sounds
 
-| -----------Scratch----------- | Processing |
-| :-: | :-: |
+| Scratch | Processing |
+| :---: | :---: |
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` |
 | ![stopAllSound](web/assets/stopAllsounds.png) | `stopAllSound();` `stopSound(0);` |
