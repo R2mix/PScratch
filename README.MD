@@ -101,8 +101,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
-| ![loudness](web/assets/volume.png) | `loudness` | Return the volume of the microphone 0 - 100 |
-| ![timer](web/assets/volume.png) | `loudness` | Return the time in sec since programme starts ou being reset|
+| ![loudness](web/assets/loudness.png) | `loudness` | Return the volume of the microphone 0 - 100 |
+| ![timer](web/assets/timer.png) | `timer` | Return the time in sec since programme starts ou being reset|
 | ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
 | ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
 
@@ -119,6 +119,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![clearsoundeffect](web/assets/clearsoundeffect.png) | `clearSoundEffects();` | Set default value to all sound effect |
 | ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10);` | Change the volume of the sounds |
 | ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100);` | Set value to the volume of the sounds |
+| ![volume](web/assets/volume.png) | `volume;` | return value of the volume of the sounds |
 
 
 #### PEN
