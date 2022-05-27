@@ -126,14 +126,14 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 | Scratch | Processing | Description |
 | :---: | :---: | :---: |
-| ![pen attach]() | `attach(Sprite);` |
-| ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` |
-| ![stamp](web/assets/stamp.png) | `stamp();` |
-| ![pen down](web/assets/pen_pen_down.png) | `penDown();` |
-| ![pen up](web/assets/pen_pen_up.png) | `penUp();` |
-| ![pen set color to](web/assets/pen_set_pen_color_to.png) | `setPenColorTo(10);` |
-| ![pen change color by](web/assets/pen_change_pen_color_by.png) | `changePenColorBy(1);` |
-| ![pen change transparency by](web/assets/pen_change_pen_transparency_by.png) | `changePenColorBy(1);` |
-| ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `setPenColorTo(50);` |
-| ![pen change size by](web/assets/pen_change_pen_size_by.png) | `changePenSizeBy(1);` |
-| ![pen set size to](web/assets/pen_set_pen_size_to.png) | `setPenSizeTo(50);` |
+| ![pen attach]() | `attach(Sprite);` | Attach the pen to a sprite and follow him |
+| ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` | Erase all stamp and all pen trace |
+| ![stamp](web/assets/stamp.png) | `stamp();` | Make a stamp from the attached sprite |
+| ![pen down](web/assets/pen_pen_down.png) | `penDown();` | Allow drawing |
+| ![pen up](web/assets/pen_pen_up.png) | `penUp();` | Disable drawing |
+| ![pen change color by](web/assets/pen_change_pen_color_by.png) | `changePenColorBy(1);` | Change the color to next color |
+| ![pen set color to](web/assets/pen_set_pen_color_to.png) | `setPenColorTo(10);` | Set the color of the pen 0-100 |
+| ![pen change transparency by](web/assets/pen_change_pen_transparency_by.png) | `changePenTransparencyBy(1);` | change the transparency of the pen |
+| ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `setPenTransparencyTo(50);` | set the transparency of the pen |
+| ![pen change size by](web/assets/pen_change_pen_size_by.png) | `changePenSizeBy(1);` | change the size of the pen |
+| ![pen set size to](web/assets/pen_set_pen_size_to.png) | `setPenSizeTo(50);` | set the size of the pen |
