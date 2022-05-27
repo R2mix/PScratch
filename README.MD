@@ -94,12 +94,18 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | :---: | :---: | :---: |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if`. |
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
-| ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
+| ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
+| ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
+| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
 | ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` | Return true if the mouse is pressed. It should be called inside a `if` |
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
-| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
-| ![stage current ?](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
+| ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
+| ![loudness](web/assets/volume.png) | `loudness` | Return the volume of the microphone 0 - 100 |
+| ![timer](web/assets/volume.png) | `loudness` | Return the time in sec since programme starts ou being reset|
+| ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
+
+| ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
 
 
 #### Sounds
@@ -114,3 +120,20 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![clearsoundeffect](web/assets/clearsoundeffect.png) | `clearSoundEffects();` | Set default value to all sound effect |
 | ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10);` | Change the volume of the sounds |
 | ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100);` | Set value to the volume of the sounds |
+
+
+#### PEN
+
+| Scratch | Processing | Description |
+| :---: | :---: | :---: |
+| ![pen attach]() | `attach(Sprite);` |
+| ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` |
+| ![stamp](web/assets/stamp.png) | `stamp();` |
+| ![pen down](web/assets/pen_pen_down.png) | `penDown();` |
+| ![pen up](web/assets/pen_pen_up.png) | `penUp();` |
+| ![pen set color to](web/assets/pen_set_pen_color_to.png) | `setPenColorTo(10);` |
+| ![pen change color by](web/assets/pen_change_pen_color_by.png) | `changePenColorBy(1);` |
+| ![pen change transparency by](web/assets/pen_change_pen_transparency_by.png) | `changePenColorBy(1);` |
+| ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `setPenColorTo(50);` |
+| ![pen change size by](web/assets/pen_change_pen_size_by.png) | `changePenSizeBy(1);` |
+| ![pen set size to](web/assets/pen_set_pen_size_to.png) | `setPenSizeTo(50);` |
