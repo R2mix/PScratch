@@ -104,7 +104,6 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![loudness](web/assets/volume.png) | `loudness` | Return the volume of the microphone 0 - 100 |
 | ![timer](web/assets/volume.png) | `loudness` | Return the time in sec since programme starts ou being reset|
 | ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
-
 | ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
 
 
