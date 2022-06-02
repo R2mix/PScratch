@@ -43,7 +43,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Motion
 
-| Scratch | Processing | Description|
+| Scratch_______Blocks | Processing | Description|
 | :--- | :--- | :--- |
 | ![move](web/assets/sprite_move_steps.png) | `move(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
