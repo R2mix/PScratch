@@ -43,9 +43,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 #### Motion
 
-|  Scratch | Processing | Description|
+| __________Scratch__________ | _Processing | _Description|
 | :---  | :--- | :--- |
-| ![move](web/assets/sprite_move_steps.png){width=200px} | `move(10);` | how many pixels the sprite move in the current direction|
+| ![move](web/assets/sprite_move_steps.png)| `move(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0); goTo("mouse"); goTo("randomPosition"); goTo(Sprite);` | Place the sprite somewhere : Can be coordinates x and Y, an other sprite, a random position in the screen or to the mouse |
