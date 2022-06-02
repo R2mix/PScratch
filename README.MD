@@ -50,7 +50,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
 | ![go to](web/assets/sprite_go_to.png) | `goTo(0, 0); goTo("mouse"); goTo("randomPosition"); goTo(Sprite);` | Place the sprite somewhere : Can be coordinates x and Y, an other sprite, a random position in the screen or to the mouse |
 | ![glide](web/assets/sprite_go_to.png) | `glide(1, 0, 0); glide(1, "mouse"); glide(1, "randomPosition"); glide(1, Sprite);` | The sprite will move during 1 second somewhere : Can be coordinates x and Y, an other sprite, a random position in the screen or to the mouse (it might not be call in draw void)|
-| ![point in direction](web/assets/point_towards.png) | `pointInDirection(0);` | Orienting the sprite in a direction in degrees. 0 is the default orientation |
+| ![point in direction](web/assets/sprite_point_in_direction.png) | `pointInDirection(0);` | Orienting the sprite in a direction in degrees. 0 is the default orientation |
 | ![point towards](web/assets/point_towards.png) | `pointTowards(0,0); pointTowards("mouse"); pointTowards(Sprite);` | Orienting the sprite towars a : coordinates x and Y, an other sprite, a random position in the screen or to the mouse |
 | ![change x by](web/assets/sprite_change_x_by.png) | `changeXBy(10);` | Change the coodonate X of the sprite in pixel |
 | ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` | Set the coodonate X of the sprite in pixel |
