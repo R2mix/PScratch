@@ -113,7 +113,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
 | ![Stop](web/assets/stop.png) | `stop(); exit()` | Stop the code, quit the program |
-| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();// SpriteClassArray.add(new SpriteClass()); ` | The array that contains the class to clone  |  | ` SpriteClassArray.add(new SpriteClass()); `| Add a new class instance in the ArrayList |
+| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();</br> SpriteClassArray.add(new SpriteClass()); ` | The array that contains the class to clone  |  | ` SpriteClassArray.add(new SpriteClass()); `| Add a new class instance in the ArrayList |
 |  | ` for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }`| Iterate for each clones |
 |  | ` SpriteClass SpriteClassInstance = SpriteClassArray.get(i); `| Get the current clone instance |
 |  | ` SpriteClassInstance.draw(); `| Display each clone  |
