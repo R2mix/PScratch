@@ -7,12 +7,12 @@ For start (in futur this will be an importable library), you have ton download P
 
 ```java
 Cat cat;                         // create a new sprite
-Scene scene;                     // create the scene                         
+Stage stage;                     // create the scene                         
 
 // ------ when program starts (like green flag) ------
 void setup() {                  
   size(800, 600);                // screen size
-  scene = new Scene("scenes");   // initialize the scene
+  stage = new Stage("stage");   // initialize the scene
   soundFolder("sounds");         // loadSounds into soundsFolder (can be renamed)
   cat= new Cat();                // initialize sprites
 }                                
