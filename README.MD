@@ -9,13 +9,15 @@ For start (in futur this will be an importable library), you have ton download P
 Cat cat;                         // create a new sprite
 Scene scene;                     // create the scene                         
 
-void setup() {                   // --- when program starts (like green flag)
+// ------ when program starts (like green flag) ------
+void setup() {                  
   size(800, 600);                // screen size
   scene = new Scene("scenes");   // initialize the scene
   soundFolder("sounds");         // loadSounds into soundsFolder (can be renamed)
-  //-----initialize sprites-----------
-  cat= new Cat();
-}                                // ------end of starting program ------
+  cat= new Cat();                // initialize sprites
+}                                
+// ------ end of starting program ------
+
 void draw () {                   //-----forever at 60 fps-----
   scene.backdrops();             // display the backdrops of the scene
   pickColor();
