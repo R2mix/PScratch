@@ -19,7 +19,7 @@ void setup() {
 // ------ end of starting program ------
 
 void draw () {                   //-----forever at 60 fps-----
-  scene.backdrops();             // display the backdrops of the scene
+  stage.backdrops();             // display the backdrops of the scene
   pickColor();
   cat.draw();                    // display a sprite can be also cat.display
 }                                //----end of draw -----
