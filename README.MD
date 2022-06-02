@@ -29,7 +29,6 @@ void keyReleased() {             // called when a key is released
 
 class Cat extends Sprite {           // create the sprite instance named "Cat"
   Cat() {
-    super();                         //call sprite functions
     start();                         // launch thread run, independent from draw
     spriteFolder("cat");             // look into sprite folder and import image, each sprite MSUT have its own folder named
   }
