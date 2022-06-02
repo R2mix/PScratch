@@ -41,9 +41,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 }
 ```
 
-#### Motion
+### Motion
 
-| Scratch__________________ | Processing | Description|
+| Scratch___________________________ | Processing | Description|
 | :---  | :--- | :--- |
 | ![move](web/assets/sprite_move_steps.png)| `move(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
@@ -63,7 +63,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![set rotation style](web/assets/rotation.png ) | `setRotationStyle("left-right"); setRotationStyle("don't rotate"); setRotationStyle("all around");` | Change the style of the rotation of the sprite, "left-right" the sprite will move like mirror, "don't rotate" the sprite will no be visualy affected by the orientation and "all around" is the defaut 360° rotation. This is purelly visual and don't affect the mouvements of the sprite |
 
 
-#### Looks
+### Looks
 
 | Scratch | Processing | Description |
 | :--- | :--- | :--- |
@@ -87,9 +87,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![size](web/assets/size.png) | `spriteSize` `spriteWidth` `spriteHeight` | Return the size or the width or the height of the sprite |
 
 
-#### Sounds
+### Sounds
 
-| Scratch | Processing | Description |
+| Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
@@ -102,9 +102,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![volume](web/assets/volume.png) | `volume;` | return value of the volume of the sounds |
 
 
-#### Control
+### Control
 
-| Scratch | Processing | Description |
+| Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![wait](web/assets/wait.png) | `wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
 | ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
@@ -116,9 +116,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` | The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br>   Iterate for each clones <br><br><br>    Get the current clone instance <br><br><br>   Display each clone | 
      
 
-#### Sensing
+### Sensing
 
-| Scratch | Processing | Description |
+| Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if` condition. |
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
@@ -136,9 +136,9 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 
 
-#### PEN
+### PEN
 
-| Scratch | Processing | Description |
+| Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![pen attach]() | `attach(Sprite);` | Attach the pen to a sprite and follow him |
 | ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` | Erase all stamp and all pen trace |
