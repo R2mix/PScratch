@@ -43,7 +43,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### Motion
 
-| Scratch___________________________ | Processing | Description|
+| Scratch________________________ | Processing | Description|
 | :---  | :--- | :--- |
 | ![move](web/assets/sprite_move_steps.png)| `move(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
@@ -65,7 +65,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### Looks
 
-| Scratch | Processing | Description |
+| Scratch_________________________ | Processing | Description |
 | :--- | :--- | :--- |
 | ![say](web/assets/say.png) | `say("Hellow"); say("Hellow", 2);` | Display a dialog bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
 | ![think](web/assets/think.png) | `think("Hellow"); think("Hellow", 2);` | Display a thinking bubble to the sprite with a text, it's possible to display during a defined time in second (in this case it might not be call in draw void) |
@@ -89,7 +89,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### Sounds
 
-| Scratch___________________________  | Processing | Description |
+| Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
@@ -104,7 +104,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### Control
 
-| Scratch___________________________  | Processing | Description |
+| Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![wait](web/assets/wait.png) | `wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
 | ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
@@ -138,7 +138,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### PEN
 
-| Scratch___________________________  | Processing | Description |
+| Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![pen attach]() | `attach(Sprite);` | Attach the pen to a sprite and follow him |
 | ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` | Erase all stamp and all pen trace |
