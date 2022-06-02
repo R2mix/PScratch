@@ -97,12 +97,12 @@ class Cat extends Sprite {       // create the sprite instance named "Cat"
 | ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
 | ![playSound](web/assets/startsound.png) | `playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
 | ![stopAllSound](web/assets/stopAllsounds.png) | `stopAllSound();` `stopSound(0);` | Stop all sound, stop a specific sound |
-| ![changeSoundEffect](web/assets/changeeffect.png) | `changePitchEffectBy(100);` `changePanEffectBy(0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds) |
-| ![setSoundEffect](web/assets/setEffect.png) | `setPitchEffectBy(10);``setPanEffectBy(0);` | Set the value of the pitch or the pan effect |
+| ![changeSoundEffect](web/assets/changeeffect.png) | `changePitchEffectBy(100); changePitchEffectBy(100, 0);` `changePanEffectBy(0); changePanEffectBy(0, 0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds), , the second argument is for a specific sound |
+| ![setSoundEffect](web/assets/setEffect.png) | `setPitchEffectBy(10); setPitchEffectBy(10, 0);``setPanEffectBy(0); setPanEffectBy(0, 0);` | Set the value of the pitch or the pan effect, the second argument is for a specific sound |
 | ![clearsoundeffect](web/assets/clearsoundeffect.png) | `clearSoundEffects();` | Set default value to all sound effect |
-| ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10);` | Change the volume of the sounds |
-| ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100);` | Set value to the volume of the sounds |
-| ![volume](web/assets/volume.png) | `volume;` | return value of the volume of the sounds |
+| ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10); changeVolumeBy(-10, 0);` | Change the volume of the sounds, the second argument is for a specific sound |
+| ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100); setVolumeTo(100, 0);` | Set value to the volume of the sounds, the second argument is for a specific sound |
+| ![volume](web/assets/volume.png) | `volume[0];` | return value of the volume of a specific sounds |
 
 
 ### Control
