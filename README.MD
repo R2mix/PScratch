@@ -7,7 +7,8 @@ For start (in futur this will be an importable library), you have ton download P
 
 ```java
 Cat cat;                         // create a new sprite
-Scene scene;                     // create the scene                         // create a new sprite
+Scene scene;                     // create the scene                         
+
 void setup() {                   // --- when program starts (like green flag)
   size(800, 600);                // screen size
   scene = new Scene("scenes");   // initialize the scene
