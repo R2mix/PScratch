@@ -113,8 +113,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
 | ![Stop](web/assets/stop.png) | `stop(); exit()` | Stop the code, quit the program |
-| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` <br><br> ` SpriteClassArray.remove(this);`
-| The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br>   Iterate for each clones <br><br><br>    Get the current clone instance <br><br><br>   Display each clone <br><br>   Remove the clone from the ArrayList, should be call inside the class | 
+| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` <br><br> ` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br>   Iterate for each clones <br><br><br>    Get the current clone instance <br><br><br>   Display each clone <br><br>   Remove the clone from the ArrayList, should be call inside the class | 
      
 
 ### Sensing
