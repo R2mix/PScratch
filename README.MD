@@ -104,7 +104,7 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
 ### Control
 
-| Scratch________________________  | Processing | Description |
+| Scratch____________________  | Processing | Description |
 | :--- | :--- | :--- |
 | ![wait](web/assets/wait.png) | `wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
 | ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
