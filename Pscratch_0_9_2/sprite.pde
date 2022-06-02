@@ -17,7 +17,14 @@ public class Sprite extends Thread {
     x = width/2;                                                        // default position
     y = height/2;
   }
-
+  
+  public Sprite(String file ) {                                         // initialize the sprite with only one costume
+    x = width/2;                                                       
+    y = height/2;                                                       
+    costumes = new PImage [1];                                          
+    costumes[0] = loadImage(file);
+  }
+  
   //====================================== Sprite folder research =========================================================================================
   public void printFolder() {                                           // Have to be called before spriteFolder for print informations
     printFolder = true;
