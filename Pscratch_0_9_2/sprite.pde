@@ -12,7 +12,7 @@ public class Sprite extends Thread {
   // |---> warning : this disable the posibility of touching color with this sprite
   private PImage [] costumes;                                           // costumes is an array of images
   private String rotationStyle = "all around";
-  
+
   public Sprite( ) {                                                    // initialize the sprite
     x = width/2;                                                        // default position
     y = height/2;
@@ -572,11 +572,9 @@ void microphone() {                                                            /
 
 //--------------------------------------------------------------------------------------------
 
-
-
-public void playSound(int numeroSon) {                                       // play a sound from 0 with pitch value and volume value
-  sounds[numeroSon].play(pitch[numeroSon], 0, volume[numeroSon]);
-  sounds[numeroSon].pan(pan[numeroSon]);
+public void playSound(int numeroSon) {                                       // play a sound from 0 with pitch[i] value and volume value
+  sounds[numeroSon].play(pitch[numeroSon], volume[numeroSon] );
+  if (sounds[numeroSon].channels() == 1) sounds[numeroSon].pan(pan[numeroSon]);
 }
 public void playSoundUntilDown(int numeroSon) {                              //wait the sound is over before go to the next code ling, better using is into run void
   playSound( numeroSon);
@@ -591,60 +589,87 @@ public void stopAllSound() {                                                 // 
     sounds[i].stop();
   }
 }
-public void changePitchEffectBy(float p) {                                   // change pitch of a sound by changing it rate (like on scratch)
+public void changePitchEffectBy(float p) {                                   // change pitch[i] of a sound by changing it rate (like on scratch)
   for (int i =0; i < totalNumberOfSounds; i++) {
-    pitch[i] += (p * 0.01);
+    pitch[i] += p * 0.01;
+    pitch[i] = constrain(pitch[i], 0, 100);
+    sounds[i].rate(pitch[i]);
   }
 }
 public void setPitchTo(float p) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pitch[i] = p * 0.01;
+    pitch[i] = constrain(pitch[i], 0, 100);
+    sounds[i].rate(pitch[i]);
   }
 }
 public void changePanEffectBy(float pa) {                                    // -1 left, +1 right 0 center (don't work with stereo sounds)
   for (int i =0; i < totalNumberOfSounds; i++) {
     pan[i] += (pa * 0.01);
+    pan[i] = constrain(pan[i], -1, 1);
+    if (sounds[i].channels() == 1) sounds[i].pan(pan[i]);
   }
 }
 public void setPanTo(float pa) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pan[i] = pa * 0.01;
+    pan[i] = constrain(pan[i], -1, 1);
+    if (sounds[i].channels() == 1) sounds[i].pan(pan[i]);
   }
 }
-public void changePitchEffectBy(float p, int s) {                            // change pitch of a sound by changing it rate (like on scratch)
-  pitch[s] += (p * 0.01);
+public void changePitchEffectBy(float p, int s) {                            // change pitch[i] of a sound by changing it rate (like on scratch)
+  pitch[s] += p * 0.01;
+  pitch[s] = constrain(pitch[s], 0, 100);
+  sounds[s].rate(pitch[s]);
 }
 public void setPitchTo(float p, int s) {
   pitch[s] = p * 0.01;
+  pitch[s] = constrain(pitch[s], 0, 100);
+  sounds[s].rate(pitch[s]);
 }
 public void changePanEffectBy(float pa, int s) {                             // -1 left, +1 right 0 center (don't work with stereo sounds)
   pan[s] += (pa * 0.01);
+  pan[s] = constrain(pan[s], -1, 1);
+  if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);
 }
 public void setPanTo(float pa, int s) {
   pan[s] = pa * 0.01;
+  pan[s] = constrain(pan[s], -1, 1);
+  if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);
 }
 public void clearSoundEffects() {                                            // restore default sounds values
   for (int i =0; i < totalNumberOfSounds; i++) {
     pitch[i] = 1;
     volume[i] = 1;
     pan[i] = 0;
+    sounds[i].amp(volume[i]);
+    sounds[i].rate(pitch[i]);
+    if (sounds[i].channels() == 1)sounds[i].pan(pan[i]);
   }
 }
 public void changeVolumeBy( float v) {                                       // work on the volume of the sound
   for (int i =0; i < totalNumberOfSounds; i++) {
     volume[i] += (v * 0.01);
+    volume[i] = constrain(volume[i], 0, 1);
+    sounds[i].amp(pan[i]);
   }
 }
 public void setVolumeTo(float v) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     volume[i] = v * 0.01;
+    volume[i] = constrain(volume[i], 0, 1);
+    sounds[i].amp(volume[i]);
   }
 }
 public void changeVolumeBy( float v, int s) {                                // work on the volume of the sound
   volume[s] += (v * 0.01);
+  volume[s] = constrain(volume[s], 0, 1);
+  sounds[s].amp(volume[s]);
 }
 public void setVolumeTo(float v, int s) {
   volume[s] = v * 0.01;
+  volume[s] = constrain(volume[s], 0, 1);
+  sounds[s].amp(volume[s]);
 }
 
 public void pickColor() {                                                   // call it if you want to get the color of a pixel with you mouse when you click
