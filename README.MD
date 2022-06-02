@@ -87,26 +87,6 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![size](web/assets/size.png) | `spriteSize` `spriteWidth` `spriteHeight` | Return the size or the width or the height of the sprite |
 
 
-
-#### Sensing
-
-| Scratch | Processing | Description |
-| :---: | :---: | :---: |
-| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if`. |
-| ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
-| ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
-| ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
-| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
-| ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` | Return true if the mouse is pressed. It should be called inside a `if` |
-| ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
-| ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
-| ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
-| ![loudness](web/assets/loudness.png) | `loudness` | Return the volume of the microphone 0 - 100 |
-| ![timer](web/assets/timer.png) | `timer` | Return the time in sec since programme starts ou being reset|
-| ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
-| ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
-
-
 #### Sounds
 
 | Scratch | Processing | Description |
@@ -120,6 +100,40 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10);` | Change the volume of the sounds |
 | ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100);` | Set value to the volume of the sounds |
 | ![volume](web/assets/volume.png) | `volume;` | return value of the volume of the sounds |
+
+
+#### Control
+
+| Scratch | Processing | Description |
+| :---: | :---: | :---: |
+| ![wait](web/assets/wait.png) | `wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
+| ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
+| ![forever](web/assets/forever.png) | `for(;;){//code goes here}` | Work as the repeat 10 time but indefinitly |
+| ![if](web/assets/if.png) | `if(//condition){//code goes here}`| Execute the code inside the if, if the condition is complete |
+| ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
+| ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
+| ![Stop](web/assets/stop.png) | `stop(); exit()` | Stop the code, quit the program |
+| ![clones](web/assets/clones.png) | `clearSoundEffects();` | Set default value to all sound effect |
+
+
+#### Sensing
+
+| Scratch | Processing | Description |
+| :---: | :---: | :---: |
+| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if` condition. |
+| ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
+| ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
+| ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
+| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
+| ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` | Return true if the mouse is pressed. It should be called inside a `if` |
+| ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
+| ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
+| ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
+| ![loudness](web/assets/loudness.png) | `loudness` | Return the volume of the microphone 0 - 100 |
+| ![timer](web/assets/timer.png) | `timer` | Return the time in sec since programme starts ou being reset|
+| ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
+| ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
+
 
 
 #### PEN
