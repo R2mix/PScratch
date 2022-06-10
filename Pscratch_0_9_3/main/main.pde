@@ -1,5 +1,5 @@
 Cat cat;                        // create a new sprite
-Stage stage;                     // create the scene                         // create a new sprite
+Stage stage;                     // create the scene                        
 
 void setup() {                   // --- when program starts (like green flag)
   size(800, 600);                // screen size
