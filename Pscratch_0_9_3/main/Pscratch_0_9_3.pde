@@ -608,7 +608,7 @@ public void changePitchEffectBy(float p) {                                   // 
     sounds[i].rate(pitch[i]);
   }
 }
-public void setPitchTo(float p) {
+public void setPitchEffectTo(float p) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pitch[i] = p * 0.01;
     pitch[i] = constrain(pitch[i], 0, 100);
@@ -622,7 +622,7 @@ public void changePanEffectBy(float pa) {                                    // 
     if (sounds[i].channels() == 1) sounds[i].pan(pan[i]);
   }
 }
-public void setPanTo(float pa) {
+public void setPanEffectTo(float pa) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pan[i] = pa * 0.01;
     pan[i] = constrain(pan[i], -1, 1);
@@ -634,7 +634,7 @@ public void changePitchEffectBy(float p, int s) {                            // 
   pitch[s] = constrain(pitch[s], 0, 100);
   sounds[s].rate(pitch[s]);
 }
-public void setPitchTo(float p, int s) {
+public void setPitchEffectTo(float p, int s) {
   pitch[s] = p * 0.01;
   pitch[s] = constrain(pitch[s], 0, 100);
   sounds[s].rate(pitch[s]);
@@ -644,7 +644,7 @@ public void changePanEffectBy(float pa, int s) {                             // 
   pan[s] = constrain(pan[s], -1, 1);
   if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);
 }
-public void setPanTo(float pa, int s) {
+public void setPanEffectTo(float pa, int s) {
   pan[s] = pa * 0.01;
   pan[s] = constrain(pan[s], -1, 1);
   if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);

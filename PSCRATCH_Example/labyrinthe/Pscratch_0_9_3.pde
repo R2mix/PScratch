@@ -225,7 +225,9 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rect( 0, - (spriteHeight/2) - 48, spriteSays.length() * 11, 48, 48); // bubble
+      int bubbleSize = 12;
+      if (spriteSays.length() > 12) bubbleSize = spriteSays.length();
+      rect( 0, - (spriteHeight/2) - 48, bubbleSize * 11, 48, 48); // bubble
       triangle((spriteWidth/2)+16, - spriteHeight/2, spriteWidth/3, -spriteHeight/4, spriteWidth/2, -spriteHeight/2 ); // quote
       fill(0);
       textSize(16);
@@ -248,7 +250,9 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rect( 0, - (spriteHeight/2) - 48, spriteThinks.length() * 11, 48, 48);// bubble
+      int bubbleSize = 12;
+      if (spriteThinks.length() > 12) bubbleSize = spriteThinks.length();
+      rect( 0, - (spriteHeight/2) - 48, bubbleSize * 11, 48, 48);// bubble
       circle( (spriteWidth/2)+16, - spriteHeight/2, spriteWidth/8);
       circle( (spriteWidth/3)+16, - spriteHeight/3, spriteWidth/8);
       fill(0);
@@ -409,9 +413,9 @@ private StringList   data = new StringList();                                 //
 public String answer = "";                                                    // Return the answer to the user
 private String charKey;                                                       // converting char in string
 private String textScreen = "";                                               // Show typed on the screen
-private boolean isAsking;                                                     // check if the question is asked
+public boolean isAsking;                                                     // check if the question is asked
 
-void textToScreen() {
+private void textToScreen() {
   if (isAsking) {
     push();
     fill(255);
@@ -432,7 +436,7 @@ void textToScreen() {
   }
 }
 
-void keyType() {
+private void keyType() {
   if (isAsking) {
     if (key == BACKSPACE  ) {                                                 // erase function
       if ( data.size() > 0)  data.remove(data.size()-1);
@@ -604,7 +608,7 @@ public void changePitchEffectBy(float p) {                                   // 
     sounds[i].rate(pitch[i]);
   }
 }
-public void setPitchTo(float p) {
+public void setPitchEffectTo(float p) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pitch[i] = p * 0.01;
     pitch[i] = constrain(pitch[i], 0, 100);
@@ -618,7 +622,7 @@ public void changePanEffectBy(float pa) {                                    // 
     if (sounds[i].channels() == 1) sounds[i].pan(pan[i]);
   }
 }
-public void setPanTo(float pa) {
+public void setPanEffectTo(float pa) {
   for (int i =0; i < totalNumberOfSounds; i++) {
     pan[i] = pa * 0.01;
     pan[i] = constrain(pan[i], -1, 1);
@@ -630,7 +634,7 @@ public void changePitchEffectBy(float p, int s) {                            // 
   pitch[s] = constrain(pitch[s], 0, 100);
   sounds[s].rate(pitch[s]);
 }
-public void setPitchTo(float p, int s) {
+public void setPitchEffectTo(float p, int s) {
   pitch[s] = p * 0.01;
   pitch[s] = constrain(pitch[s], 0, 100);
   sounds[s].rate(pitch[s]);
@@ -640,7 +644,7 @@ public void changePanEffectBy(float pa, int s) {                             // 
   pan[s] = constrain(pan[s], -1, 1);
   if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);
 }
-public void setPanTo(float pa, int s) {
+public void setPanEffectTo(float pa, int s) {
   pan[s] = pa * 0.01;
   pan[s] = constrain(pan[s], -1, 1);
   if (sounds[s].channels() == 1) sounds[s].pan(pan[s]);
@@ -754,6 +758,7 @@ public class Stage {                                                        // s
     tint(colorEffectValue, gostEffectValue);
     image(stage[backdrop], 0, 0 );
     pop();
+    textToScreen();
   }
 
   //-------------------------------------------------------------- looks function similare to sprite --------------------------------------------------------------
