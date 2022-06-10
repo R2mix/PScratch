@@ -1,4 +1,4 @@
-# PScratch-lib-0.9.2
+# PScratch-lib-0.9.3
 
 PScratch is a package for processing that give the possibility to use basic scratch function for learning processing
 
@@ -59,7 +59,7 @@ class Cat extends Sprite {       // create the sprite instance named "Cat"
 | ![set x to](web/assets/sprite_set_x_to.png) | `setXTo(0);` | Set the coodonate X of the sprite in pixel |
 | ![change y by](web/assets/sprite_change_y_by.png) | `changeYBy(10);` | Change the coodonate Y of the sprite in pixel |
 | ![set y to](web/assets/sprite_set_y_to.png) | `setYTo(0);` | Set the coodonate Y of the sprite in pixel |
-| ![on edge bounce](web/assets/sprite_if_on_edge_bounce.png) | `onEdgeBounce();` | If the sprite touch the edge, it will automatically turn in the oposite direction |
+| ![on edge bounce](web/assets/sprite_if_on_edge_bounce.png) | `ifOnEdgeBounce();` | If the sprite touch the edge, it will automatically turn in the oposite direction |
 | ![x](web/assets/sprite_x_positon.png) | `x` | Return the current coordinate X of the sprite |
 | ![y](web/assets/sprite_y_position.png) | `y` | Return the current coordinate Y of the sprite |
 | ![direction](web/assets/sprite_direction.png) | `direction` | Return the current direction of the sprite |
