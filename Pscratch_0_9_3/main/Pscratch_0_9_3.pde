@@ -225,7 +225,9 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rect( 0, - (spriteHeight/2) - 48, spriteSays.length() * 11, 48, 48); // bubble
+      int bubbleSize = 12;
+      if (spriteSays.length() > 12) bubbleSize = spriteSays.length();
+      rect( 0, - (spriteHeight/2) - 48, bubbleSize * 11, 48, 48); // bubble
       triangle((spriteWidth/2)+16, - spriteHeight/2, spriteWidth/3, -spriteHeight/4, spriteWidth/2, -spriteHeight/2 ); // quote
       fill(0);
       textSize(16);
@@ -248,7 +250,9 @@ public class Sprite extends Thread {
       push();
       fill(255);
       noStroke();
-      rect( 0, - (spriteHeight/2) - 48, spriteThinks.length() * 11, 48, 48);// bubble
+      int bubbleSize = 12;
+      if (spriteThinks.length() > 12) bubbleSize = spriteThinks.length();
+      rect( 0, - (spriteHeight/2) - 48, bubbleSize * 11, 48, 48);// bubble
       circle( (spriteWidth/2)+16, - spriteHeight/2, spriteWidth/8);
       circle( (spriteWidth/3)+16, - spriteHeight/3, spriteWidth/8);
       fill(0);
@@ -409,9 +413,9 @@ private StringList   data = new StringList();                                 //
 public String answer = "";                                                    // Return the answer to the user
 private String charKey;                                                       // converting char in string
 private String textScreen = "";                                               // Show typed on the screen
-private boolean isAsking;                                                     // check if the question is asked
+public boolean isAsking;                                                     // check if the question is asked
 
-void textToScreen() {
+private void textToScreen() {
   if (isAsking) {
     push();
     fill(255);
@@ -432,7 +436,7 @@ void textToScreen() {
   }
 }
 
-void keyType() {
+private void keyType() {
   if (isAsking) {
     if (key == BACKSPACE  ) {                                                 // erase function
       if ( data.size() > 0)  data.remove(data.size()-1);
@@ -754,6 +758,7 @@ public class Stage {                                                        // s
     tint(colorEffectValue, gostEffectValue);
     image(stage[backdrop], 0, 0 );
     pop();
+    textToScreen();
   }
 
   //-------------------------------------------------------------- looks function similare to sprite --------------------------------------------------------------
