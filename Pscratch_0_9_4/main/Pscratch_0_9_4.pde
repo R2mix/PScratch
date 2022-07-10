@@ -340,7 +340,7 @@ public class Sprite extends Thread {
   }
   //------------------------------------------------------------- END of color detection------------------------------------------------------------------
   public boolean touch(color col) {                                         // call this boolean for testing if touching color
-    if (colorStored.hasValue(col) ) {                                       // if the color is present into the list of colors stored
+    if (colorStored.hasValue(col) && display  ) {                                       // if the color is present into the list of colors stored
       return true;
     } else {
       return false;
@@ -350,7 +350,7 @@ public class Sprite extends Thread {
     if ( x + spriteWidth/2 > xx - l /2 &&
       x - spriteWidth/2 < xx + l/2 &&
       y + spriteHeight/2 > yy - h/2 &&
-      y - spriteHeight/2 < yy + h/2 ) {
+      y - spriteHeight/2 < yy + h/2 && display) {
       return true;
     } else {
       return false;
@@ -360,19 +360,23 @@ public class Sprite extends Thread {
     return touch(other.x, other.y, other.spriteWidth, other.spriteHeight);
   }
   public boolean touch(String s) {                                          // square hitbox comparing to :
-    // touch edge
-    if (s == "edge" && ( x + spriteWidth/2 > width ||
-      x - spriteWidth/2 < 0 ||
-      y + spriteHeight/2 > height ||
-      y - spriteHeight/2 < 0 )) {
-      return true;
-    }
-    // touch mouse
-    else if (s == "mouse" &&  x + spriteWidth/2 > mouseX &&
-      x - spriteWidth/2 < mouseX &&
-      y + spriteHeight/2 > mouseY &&
-      y - spriteWidth/2 < mouseY ) {
-      return true;
+    if (display) {
+      // touch edge
+      if (s == "edge" && ( x + spriteWidth/2 > width ||
+        x - spriteWidth/2 < 0 ||
+        y + spriteHeight/2 > height ||
+        y - spriteHeight/2 < 0 )) {
+        return true;
+      }
+      // touch mouse
+      else if (s == "mouse" &&  x + spriteWidth/2 > mouseX &&
+        x - spriteWidth/2 < mouseX &&
+        y + spriteHeight/2 > mouseY &&
+        y - spriteWidth/2 < mouseY ) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
