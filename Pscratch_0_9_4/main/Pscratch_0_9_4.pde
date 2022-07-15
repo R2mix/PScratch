@@ -369,10 +369,7 @@ public class Sprite extends Thread {
         return true;
       }
       // touch mouse
-      else if (s == "mouse" &&  x + spriteWidth/2 > mouseX &&
-        x - spriteWidth/2 < mouseX &&
-        y + spriteHeight/2 > mouseY &&
-        y - spriteWidth/2 < mouseY ) {
+      else if (s == "mouse" && touch(mouseX, mouseY,0,0)) {
         return true;
       } else {
         return false;
