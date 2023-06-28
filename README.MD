@@ -48,7 +48,7 @@ class Cat extends Sprite {       // create the sprite instance named "Cat"
 
 | Scratch________________________ | Processing | Description|
 | :---  | :--- | :--- |
-| ![move](web/assets/sprite_move_steps.png)| `move(10);` | how many pixels the sprite move in the current direction|
+| ![move](web/assets/sprite_move_steps.png)| `move(10); moveRight(10); moveLeft(10);` | how many pixels the sprite move in the current direction|
 | ![turn left](web/assets/sprite_turn_left.png) | `turnLeft(15);` | how many degrees the sprite is rotation to the left |
 | ![turn right](web/assets/sprite_turn_right.png) | `turnRight(15);` | how many degrees the sprite is rotation to the right |
 | ![go to](web/assets/glide.png) | `goTo(0, 0); goTo("mouse"); goTo("randomPosition"); goTo(Sprite);` | Place the sprite somewhere : Can be coordinates x and Y, an other sprite, a random position in the screen or to the mouse |
@@ -109,13 +109,13 @@ class Cat extends Sprite {       // create the sprite instance named "Cat"
 
 | Scratch____________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![wait](web/assets/wait.png) | `wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
+| ![wait](web/assets/wait.png) | `Wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
 | ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
 | ![forever](web/assets/forever.png) | `for(;;){//code goes here}` | Work as the repeat 10 time but indefinitly |
 | ![if](web/assets/if.png) | `if(//condition){//code goes here}`| Execute the code inside the if, if the condition is complete |
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
-| ![Stop](web/assets/stop.png) | `stop(); exit()` | Stop the code, quit the program |
+| ![Stop](web/assets/stop.png) | `Stop(); exit(), Play()` | Stop the code, quit the program, relauch the programme |
 | ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` <br><br> ` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br><br>   Iterate for each clones <br><br> Get the current clone instance <br><br><br>   Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
      
 
@@ -123,7 +123,7 @@ class Cat extends Sprite {       // create the sprite instance named "Cat"
 
 | Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge");` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if` condition. |
+| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); showHitbox = true` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if` condition. showHitbox display the hitbox of the sprite|
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
 | ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
 | ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
