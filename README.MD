@@ -1,4 +1,4 @@
-# PScratch-lib-0.9.7
+# PScratch-lib-0.9.8
 
 PScratch is a package for processing that give the possibility to use basic scratch function for learning processing
 
@@ -10,9 +10,9 @@ Cat cat;                        // create a new sprite
 Stage stage;                     // create the scene
 
 void setup() {                   // --- when program starts (like green flag)
-  size(800, 600);                // screen size
-  printFolder();
-  stage = new Stage("stage");   // initialize the scene
+  size(1000,600);                // screen size
+  printFolder();                 // print the content of the folders inside the console
+  stage = new Stage("stage");    // initialize the scene
   soundFolder("sounds");         // loadSounds into soundsFolder (can be renamed)
   //-----initialize sprites-----------
   cat= new Cat();
@@ -34,21 +34,14 @@ void keyPressed() {              // called when a key is pressed
 void keyReleased() {             // called when a key is released
   keyIsUp();                     // check if all keys are released or not
 }
-class Cat extends Sprite {           // create the sprite instance named "Cat"
-
-  Cat() {
-    spriteFolder("cat");             // look into sprite folder and import image, each sprite MUST have its own folder named
-  }
-
-  void draw() {                      // call it into the main draw void or just call sprite.display into main draw void
-   display();                       // for showing and using the sprite
-  }
-
-  void run() {                       // thread where you can code without screen frameRate
-  }
-}
 ```
 
+Advanced feature added : 
+```java
+showHitbox = true // show the hitbox of your sprite
+hitboxL = 0;      // adjust the width of the hitbox of your sprite
+hitboxH = 0;      // adjust the height of the hitbox of your sprite
+```
 ### Motion
 
 | Scratch________________________ | Processing | Description|
@@ -120,15 +113,15 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 | ![if](web/assets/if.png) | `if(//condition){//code goes here}`| Execute the code inside the if, if the condition is complete |
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
-| ![Stop](web/assets/stop.png) | `Stop(); exit(), Play()` | Stop the code, quit the program, relauch the programme |
-| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `for (int i = SpriteClassArray.size() - 1; i >= 0; i--) { }` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` <br><br> ` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br><br>   Iterate for each clones <br><br> Get the current clone instance <br><br><br>   Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
+| ![Stop](web/assets/stop.png) | `stop(); exit(), Pause(), Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
+| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `drawClones(SpriteClassArray)` <br><br>  `SpriteClass SpriteClassInstance = SpriteClassArray.get(i);` <br><br>  `SpriteClassInstance.draw();` <br><br> ` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br>   Add a new class instance in the ArrayList <br><br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
      
 
 ### Sensing
 
 | Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); showHitbox = true` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, the mouse or the edge of the screen. Should use inside a `if` condition. showHitbox display the hitbox of the sprite|
+| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); touch(SpriteClassArray, this)` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, if touch any clone of a sprite, the mouse or the edge of the screen. Should use inside a `if` condition.|
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
 | ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
 | ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
