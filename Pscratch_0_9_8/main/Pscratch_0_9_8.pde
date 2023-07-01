@@ -3,11 +3,10 @@ import processing.sound.*;                                                     /
 public class Sprite implements Runnable {
 
   private Thread thread;                                                      // thread for each sprite
-
   public float x, y, direction, angleRadian, spriteWidth, spriteHeight, spriteSize = 100; // basics informations of the sprite
   public int costume, sens=1;                                                 // actual costume and size of the sprite
   public int hitboxL, hitboxH;                                                // change the size of the hitbox for being more precise
-    public boolean showHitbox;                                                // show the hitbox for set it up
+  public boolean showHitbox;                                                // show the hitbox for set it up
   public int colorEffectValue = -1, colorCurrentValue = 0;                    // defaut color effect value (no coloration)
   public int gostEffectValue = 255;                                           // defaut ghost effect value (visible)
   private boolean dragable, display = true;                                   // boolean for rotation, dragable and is displaying, (private) call it by the named functions
@@ -346,7 +345,7 @@ public class Sprite implements Runnable {
   public boolean touch(float xx, float yy, float l, float h, float di) {     // square hitbox comparing two position and size
     float hL =  spriteWidth/2 + hitboxL;                                     // for changing the hitbox size
     float hH =  spriteHeight/2 + hitboxH;
-    
+
     float cx1 = x + hL * cos(radians(direction)) - hH * sin(radians(direction));
     float cy1 = y + hL * sin(radians(direction)) + hH * cos(radians(direction));
     float cx2 = x - hL * cos(radians(direction)) - hH * sin(radians(direction));
@@ -597,11 +596,11 @@ public void drawClones(ArrayList<? extends Sprite> clones) {
   if (clones.isEmpty()) {
     return;                                                                // condition de sortie de la récursion
   }
-  int i = 0;
-  while (i < clones.size()) {
+  int i = clones.size() - 1;
+  while (i < -1) {
     Sprite clone = clones.get(i);                                 // récupérer le clone actuel de la liste
     clone.draw();                                                          // call la méthode "draw" de l'interface
-    i++;
+    i--;
   }
 }
 //---------------------------------------------------------- END clone system ----------------------------------------------------------------

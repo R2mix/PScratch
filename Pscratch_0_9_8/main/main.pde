@@ -2,7 +2,7 @@ Cat cat;                        // create a new sprite
 Stage stage;                     // create the scene
 
 void setup() {                   // --- when program starts (like green flag)
-  size(1000,600);                // screen size
+  size(800,600);                // screen size
   printFolder();                 // print the content of the folders inside the console
   stage = new Stage("stage");    // initialize the scene
   soundFolder("sounds");         // loadSounds into soundsFolder (can be renamed)
