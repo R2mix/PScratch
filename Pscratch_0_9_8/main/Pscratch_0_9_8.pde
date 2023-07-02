@@ -481,8 +481,8 @@ public class Sprite implements Runnable {
 
   //-----------Touch------------------------------------------------------------------
   public boolean touch(ArrayList<? extends Sprite> listA, Sprite sprite) {
-    for (Sprite cloneA : listA) {
-      if (cloneA.touch(sprite)) {
+    for (int i= listA.size() - 1; i >= 0; i--) {                                                         // call la méthode "draw" de l'interface
+      if ( listA.get(i).touch(sprite)) {
         return true; // The clone from listA touches the sprite
       }
     }
@@ -593,14 +593,8 @@ public boolean keyIsPressed(String k) {                                     // c
 
 //---------------------------------------------------------- clone system -------------------------------------------------------------------
 public void drawClones(ArrayList<? extends Sprite> clones) {
-  if (clones.isEmpty()) {
-    return;                                                                // condition de sortie de la récursion
-  }
-  int i = clones.size() - 1;
-  while (i < -1) {
-    Sprite clone = clones.get(i);                                 // récupérer le clone actuel de la liste
-    clone.draw();                                                          // call la méthode "draw" de l'interface
-    i--;
+  for(int i= clones.size() - 1; i >= 0; i--)  {
+    clones.get(i).draw();                                                          // call la méthode "draw" de l'interface
   }
 }
 //---------------------------------------------------------- END clone system ----------------------------------------------------------------
