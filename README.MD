@@ -145,7 +145,7 @@ spriteFolder("folder"); //change the folder of a sprite
 | :--- | :--- | :--- |
 | ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); touch(SpriteClassArray, this)` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, if touch any clone of a sprite, the mouse or the edge of the screen. Should use inside a `if` condition.|
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
-| ![Ask](web/assets/ask.png) | `ask("Question ?");`  | The sprite will ask to the user a key typed question to the user. |
+| ![Ask](web/assets/ask.png) | `ask("Question ?"); askAndWait("Question ?");`  | The sprite will ask to the user a key typed question to the user. AskAndWait stop the programme until the answer is completed, use it inside run()  |
 | ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
 | ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
 | ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` | Return true if the mouse is pressed. It should be called inside a `if` |
