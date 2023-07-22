@@ -1,3 +1,5 @@
+import R2mix.PScratch.*;
+
 Cat cat;                        // create a new sprite
 Stage stage;                     // create the scene
 Sounds sounds;

@@ -6,10 +6,8 @@ class Cat extends Sprite {           // create the sprite instance named "Cat"
 
   void draw() {                      // call it into the main draw void or just call sprite.display into main draw void
    display();                        // for showing and using the sprite, better call it in last
-     
   }
 
   void run() {                       // thread where you can code without screen frameRate
-  sounds.playSound(0);
   }
 }
