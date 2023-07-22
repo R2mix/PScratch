@@ -1,8 +1,7 @@
 class Cat extends Sprite {           // create the sprite instance named "Cat"
 
   Cat() {
-    super(stage);
-    spriteFolder("cat");             // look into sprite folder and import image, each sprite MUST have its own folder named
+    super(stage, "cat");             // look into sprite folder and import image, each sprite MUST have its own folder named
   }
 
   void draw() {                      // call it into the main draw void or just call sprite.display into main draw void

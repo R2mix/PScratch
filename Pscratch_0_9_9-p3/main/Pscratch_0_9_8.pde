@@ -19,13 +19,14 @@ public abstract class Sprite implements Runnable {
   public PImage[] costumes; // costumes is an array of images
   public String rotationStyle = "all around";
 
-  public Sprite(Stage s) {
+  public Sprite(Stage s, String folderName) {
     // initialize the sprite
     stageSprite = s;
     thread = new Thread(this);
     myParent = stageSprite.myParent;
     x = myParent.width / 2; // default position
     y = myParent.height / 2;
+    costumes = stageSprite.allAssetImages.get(folderName); // create a reference to the mainImages
   }
 
   public void draw() { // for override it for clones and sprites
@@ -47,11 +48,6 @@ public abstract class Sprite implements Runnable {
   public void run() { // for override it for clones and sprites
   }
 
-  // ====================================== Sprite folder research
-  // =========================================================================================
-  public void spriteFolder(String folderName) {
-    costumes = stageSprite.allAssetImages.get(folderName); // create a reference to the mainImages
-  }
 
   // ====================================== Show sprite and main sprite functions
   // ==================================================================
