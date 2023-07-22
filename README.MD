@@ -6,14 +6,16 @@ PScratch is a package for processing that give the possibility to use basic scra
 For start (in futur this will be an importable library), you have ton download PScratch released and use the folling code for starting
 
 ```java
+import R2mix.PScratch.*;
+
 Cat cat;                        // create a new sprite
 Stage stage;                     // create the scene
+Sounds sounds;
 
 void setup() {                   // --- when program starts (like green flag)
-  size(1000,600);                // screen size
-  printFolder();                 // print the content of the folders inside the console
-  stage = new Stage("stage");    // initialize the scene
-  soundFolder("sounds");         // loadSounds into soundsFolder (can be renamed)
+  size(800,600);                // screen size
+  stage = new Stage(this,"stage");    // initialize the scene
+  sounds = new Sounds(stage, "sounds");         // loadSounds into soundsFolder (can be renamed)
   //-----initialize sprites-----------
   cat= new Cat();
   //-----launch all run thread after initialize all sprites-----------
@@ -22,24 +24,43 @@ void setup() {                   // --- when program starts (like green flag)
 
 void draw () {                   //-----forever at 60 fps-----
   stage.backdrops();             // display the backdrops of the scene
-  pick();
   cat.draw();                    // display a sprite can be also cat.display
-}                                //----end of draw -----
+}   //----end of draw -----
 
+void mousePressed(){
+  stage.pick();
+}
 
 void keyPressed() {              // called when a key is pressed
-  keyIsDown();                   // check if all keys are pressed or not
+  stage.keyIsDown();                   // check if all keys are pressed or not
 }
 
 void keyReleased() {             // called when a key is released
-  keyIsUp();                     // check if all keys are released or not
+  stage.keyIsUp();                     // check if all keys are released or not
 }
+
+// -------------------CAT CLASS------------------------------------------------
+class Cat extends Sprite {           // create the sprite instance named "Cat"
+
+  Cat() {
+    super(stage, "cat");             // look into sprite folder and import image, each sprite MUST have its own folder named
+  }
+
+  void draw() {                      // call it into the main draw void or just call sprite.display into main draw void
+   display();                        // for showing and using the sprite, better call it in last
+     
+  }
+
+  void run() {                       // thread where you can code without screen frameRate
+  }
+}
+
 ```
 
 Advanced feature added : 
 ```java
 showHitbox = true // show the hitbox of your sprite
-hitboxL = 0;      // adjust the width of the hitbox of your sprite
+hitboxW = 0;      // adjust the width of the hitbox of your sprite
 hitboxH = 0;      // adjust the height of the hitbox of your sprite
 ```
 ### Motion
