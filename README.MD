@@ -3,7 +3,7 @@
 PScratch is a package for processing that give the possibility to use basic scratch function for learning processing
 
 #### Initialization
-For start (in futur this will be an importable library), you have ton download PScratch released and use the folling code for starting
+For start, download PScratch released and use the folling code for starting
 
 ```java
 import R2mix.PScratch.*;
@@ -62,6 +62,7 @@ Advanced feature added :
 showHitbox = true // show the hitbox of your sprite
 hitboxW = 0;      // adjust the width of the hitbox of your sprite
 hitboxH = 0;      // adjust the height of the hitbox of your sprite
+spriteFolder("folder"); //change the folder of a sprite
 ```
 ### Motion
 
@@ -113,28 +114,28 @@ hitboxH = 0;      // adjust the height of the hitbox of your sprite
 
 | Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
-| ![playSound](web/assets/startsound.png) | `playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
-| ![stopAllSound](web/assets/stopAllsounds.png) | `stopAllSound();` `stopSound(0);` | Stop all sound, stop a specific sound |
-| ![changeSoundEffect](web/assets/changeeffect.png) | `changePitchEffectBy(100); changePitchEffectBy(100, 0);` `changePanEffectBy(0); changePanEffectBy(0, 0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds), , the second argument is for a specific sound |
-| ![setSoundEffect](web/assets/setEffect.png) | `setPitchEffectTo(10); setPitchEffectTo(10,0);``setPanEffectTo(0); setPanEffectTo(0,0);` | Set the value of the pitch or the pan effect, the second argument is for a specific sound |
-| ![clearsoundeffect](web/assets/clearsoundeffect.png) | `clearSoundEffects();` | Set default value to all sound effect |
-| ![changeVolumeBy](web/assets/changeVolume.png) | `changeVolumeBy(-10); changeVolumeBy(-10, 0);` | Change the volume of the sounds, the second argument is for a specific sound |
-| ![setVolumeBy](web/assets/setVolume.png) | `setVolumeTo(100); setVolumeTo(100, 0);` | Set value to the volume of the sounds, the second argument is for a specific sound |
-| ![volume](web/assets/volume.png) | `volume[0];` | return value of the volume of a specific sounds |
+| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `sounds.playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
+| ![playSound](web/assets/startsound.png) | `sounds.playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
+| ![stopAllSound](web/assets/stopAllsounds.png) | `sounds.stopAllSound();` `sounds.stopSound(0);` | Stop all sound, stop a specific sound |
+| ![changeSoundEffect](web/assets/changeeffect.png) | `sounds.changePitchEffectBy(100); sounds.changePitchEffectBy(100, 0);` `sounds.changePanEffectBy(0); sounds.changePanEffectBy(0, 0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds), , the second argument is for a specific sound |
+| ![setSoundEffect](web/assets/setEffect.png) | `sounds.setPitchEffectTo(10); sounds.setPitchEffectTo(10,0);sounds.setPanEffectTo(0); sounds.setPanEffectTo(0,0);` | Set the value of the pitch or the pan effect, the second argument is for a specific sound |
+| ![clearsoundeffect](web/assets/clearsoundeffect.png) | `sounds.clearSoundEffects();` | Set default value to all sound effect |
+| ![changeVolumeBy](web/assets/changeVolume.png) | `sounds.changeVolumeBy(-10); sounds.changeVolumeBy(-10, 0);` | Change the volume of the sounds, the second argument is for a specific sound |
+| ![setVolumeBy](web/assets/setVolume.png) | `sounds.setVolumeTo(100); sounds.setVolumeTo(100, 0);` | Set value to the volume of the sounds, the second argument is for a specific sound |
+| ![volume](web/assets/volume.png) | `sounds.volume[0];` | return value of the volume of a specific sounds |
 
 
 ### Control
 
 | Scratch____________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![wait](web/assets/wait.png) | `Wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
+| ![wait](web/assets/wait.png) | `stage.Wait(1);` | Stop the code during seconds. It should be call inside `run()` function or it will block the frameRate |
 | ![repeat](web/assets/repeat.png) | `for(int i = 0; i < 10; i++){//code goes here});` | Repeat the code inside few time. `In draw()` void, it will wait the end of the repetition before go to the next frame. In `run()` void, it will repeat independently of the framerate  |
 | ![forever](web/assets/forever.png) | `for(;;){//code goes here}` | Work as the repeat 10 time but indefinitly |
 | ![if](web/assets/if.png) | `if(//condition){//code goes here}`| Execute the code inside the if, if the condition is complete |
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
-| ![Stop](web/assets/stop.png) | `stop(); exit(), Pause(), Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
+| ![Stop](web/assets/stop.png) | `stop(); exit(), stage.Pause(), stage.Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
 | ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `drawClones(SpriteClassArray)` <br><br>` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
      
 
@@ -151,9 +152,9 @@ hitboxH = 0;      // adjust the height of the hitbox of your sprite
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
-| ![loudness](web/assets/loudness.png) | `loudness` | Return the volume of the microphone 0 - 100 |
-| ![timer](web/assets/timer.png) | `timer` | Return the time in sec since programme starts ou being reset|
-| ![resetTimer](web/assets/resetTimer.png) | `resetTimer();` | Reset timer to 0|
+| ![loudness](web/assets/loudness.png) | `souds.loudness` | Return the volume of the microphone 0 - 100 |
+| ![timer](web/assets/timer.png) | `stage.timer` | Return the time in sec since programme starts ou being reset|
+| ![resetTimer](web/assets/resetTimer.png) | `stage.resetTimer();` | Reset timer to 0|
 | ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
 
 
@@ -162,14 +163,14 @@ hitboxH = 0;      // adjust the height of the hitbox of your sprite
 
 | Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![pen attach]() | `attach(Sprite);` | Attach the pen to a sprite and follow him |
-| ![pen erase all](web/assets/pen_erase_all.png) | `eraseAll();` | Erase all stamp and all pen trace |
-| ![stamp](web/assets/stamp.png) | `stamp();` | Make a stamp from the attached sprite |
-| ![pen down](web/assets/pen_pen_down.png) | `penDown();` | Allow drawing |
-| ![pen up](web/assets/pen_pen_up.png) | `penUp();` | Disable drawing |
-| ![pen change color by](web/assets/pen_change_pen_color_by.png) | `changePenColorBy(1);` | Change the color to next color |
-| ![pen set color to](web/assets/pen_set_pen_color_to.png) | `setPenColorTo(10);` | Set the color of the pen 0-100 |
-| ![pen change transparency by](web/assets/pen_change_pen_transparency_by.png) | `changePenTransparencyBy(1);` | change the transparency of the pen |
-| ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `setPenTransparencyTo(50);` | set the transparency of the pen |
-| ![pen change size by](web/assets/pen_change_pen_size_by.png) | `changePenSizeBy(1);` | change the size of the pen |
-| ![pen set size to](web/assets/pen_set_pen_size_to.png) | `setPenSizeTo(50);` | set the size of the pen |
+| ![pen attach]() | `pen.attach(Sprite);` | Attach the pen to a sprite and follow him |
+| ![pen erase all](web/assets/pen_erase_all.png) | `pen.eraseAll();` | Erase all stamp and all pen trace |
+| ![stamp](web/assets/stamp.png) | `pen.stamp();` | Make a stamp from the attached sprite |
+| ![pen down](web/assets/pen_pen_down.png) | `pen.penDown();` | Allow drawing |
+| ![pen up](web/assets/pen_pen_up.png) | `pen.penUp();` | Disable drawing |
+| ![pen change color by](web/assets/pen_change_pen_color_by.png) | `pen.changePenColorBy(1);` | Change the color to next color |
+| ![pen set color to](web/assets/pen_set_pen_color_to.png) | `pen.setPenColorTo(10);` | Set the color of the pen 0-100 |
+| ![pen change transparency by](web/assets/pen_change_pen_transparency_by.png) | `pen.changePenTransparencyBy(1);` | change the transparency of the pen |
+| ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `pen.setPenTransparencyTo(50);` | set the transparency of the pen |
+| ![pen change size by](web/assets/pen_change_pen_size_by.png) | `pen.changePenSizeBy(1);` | change the size of the pen |
+| ![pen set size to](web/assets/pen_set_pen_size_to.png) | `pen.setPenSizeTo(50);` | set the size of the pen |
