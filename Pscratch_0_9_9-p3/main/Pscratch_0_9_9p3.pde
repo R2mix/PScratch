@@ -804,7 +804,7 @@ public class Stage {
   // ==========================================================================
 
   private PImage[] stage;
-  private int backdrop = 0;
+  public int backdrop = 0;
   public int colorEffectValue = -1;
   public int gostEffectValue = 255;
 
