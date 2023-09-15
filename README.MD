@@ -1,4 +1,4 @@
-# PScratch-lib-0.9.9
+# PScratch-lib-1.0.0
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing
 
@@ -63,6 +63,7 @@ showHitbox = true // show the hitbox of your sprite
 hitboxW = 0;      // adjust the width of the hitbox of your sprite
 hitboxH = 0;      // adjust the height of the hitbox of your sprite
 spriteFolder("folder"); //change the folder of a sprite
+pick(); return color value on the mouse, coodonates of the mouse, size of the screen and frameRate
 ```
 ### Motion
 
@@ -143,7 +144,7 @@ spriteFolder("folder"); //change the folder of a sprite
 
 | Scratch___________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); touch(SpriteClassArray, this)` | Return true if the sprite is detecting a color, another sprite, coordinates with a rectangle hitbox, if touch any clone of a sprite, the mouse or the edge of the screen. Should use inside a `if` condition.|
+| ![touch](web/assets/touch.png) | `touch(color); touch(Sprite); touch(x,y,l,h); touch("mouse");touch("edge"); touch(SpriteClassArray, this)` | Return true if the sprite is detecting a color (type 0x instead of # on processing 3), another sprite, coordinates with a rectangle hitbox, if touch any clone of a sprite, the mouse or the edge of the screen. Should use inside a `if` condition.|
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
 | ![Ask](web/assets/ask.png) | `ask("Question ?"); askAndWait("Question ?");`  | The sprite will ask to the user a key typed question to the user. AskAndWait stop the programme until the answer is completed, use it inside run()  |
 | ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
