@@ -7,6 +7,7 @@ For start, download PScratch released and use the folling code for starting
 
 ```java
 import R2mix.PScratch.*;
+import processing.sound.*;
 
 Cat cat;                        // create a new sprite
 Stage stage;                     // create the scene
