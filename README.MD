@@ -1,62 +1,6 @@
 # PScratch-lib-1.0.0
 
-PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing
-
-#### Initialization
-For start, download PScratch released and use the folling code for starting
-
-```java
-import R2mix.PScratch.*;
-import processing.sound.*;
-
-Cat cat;                        // create a new sprite
-Stage stage;                     // create the scene
-Sounds sounds;
-
-void setup() {                   // --- when program starts (like green flag)
-  size(800,600);                // screen size
-  stage = new Stage(this,"stage");    // initialize the scene
-  sounds = new Sounds(stage, "sounds");         // loadSounds into soundsFolder (can be renamed)
-  //-----initialize sprites-----------
-  cat= new Cat();
-  //-----launch all run thread after initialize all sprites-----------
-  cat. start();                  // launch thread run, independent from draw
-}                                // ------end of starting program ------
-
-void draw () {                   //-----forever at 60 fps-----
-  stage.backdrops();             // display the backdrops of the scene
-  cat.draw();                    // display a sprite can be also cat.display
-}   //----end of draw -----
-
-void mousePressed(){
-  stage.pick();
-}
-
-void keyPressed() {              // called when a key is pressed
-  stage.keyIsDown();                   // check if all keys are pressed or not
-}
-
-void keyReleased() {             // called when a key is released
-  stage.keyIsUp();                     // check if all keys are released or not
-}
-
-// -------------------CAT CLASS------------------------------------------------
-class Cat extends Sprite {           // create the sprite instance named "Cat"
-
-  Cat() {
-    super(stage, "cat");             // look into sprite folder and import image, each sprite MUST have its own folder named
-  }
-
-  void draw() {                      // call it into the main draw void or just call sprite.display into main draw void
-   display();                        // for showing and using the sprite, better call it in last
-     
-  }
-
-  void run() {                       // thread where you can code without screen frameRate
-  }
-}
-
-```
+PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 
 Advanced feature added : 
 ```java
