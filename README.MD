@@ -1,6 +1,10 @@
 # PScratch-lib-1.0.0
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
+Download latest release and unzip inside your processing libraries folder.
+On ubuntu : ~/home/Sketchbook/libraries/
+On windows : ~\Documents\Processing\libraries\
+On mac : ~/Documents/Processing/libraries/
 
 Advanced feature added : 
 ```java
