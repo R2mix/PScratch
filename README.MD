@@ -2,9 +2,11 @@
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 Download latest release and unzip inside your processing libraries folder.
+```
 On ubuntu : ~/home/Sketchbook/libraries/
 On windows : ~\Documents\Processing\libraries\
 On mac : ~/Documents/Processing/libraries/
+```
 
 Advanced feature added : 
 ```java
@@ -124,3 +126,33 @@ pick(); return color value on the mouse, coodonates of the mouse, size of the sc
 | ![pen set transparency to](web/assets/pen_set_pen_transparency_to.png) | `pen.setPenTransparencyTo(50);` | set the transparency of the pen |
 | ![pen change size by](web/assets/pen_change_pen_size_by.png) | `pen.changePenSizeBy(1);` | change the size of the pen |
 | ![pen set size to](web/assets/pen_set_pen_size_to.png) | `pen.setPenSizeTo(50);` | set the size of the pen |
+
+###Template
+
+```java
+import R2mix.PScratch.*;
+import processing.sound.*;
+
+Cat cat;                        
+Stage stage;                    
+
+void setup() {                  
+  size(800,600);
+  stage = new Stage(this, "scenes");   
+  cat= new Cat(); 
+  cat.start();
+}                                
+void draw () {                 
+  stage.backdrops();            
+  cat.draw();                    
+}   
+void mousePressed(){             // called when the mouse is pressed
+  stage.pick();                  // Print the value of the color on the mouse position, the mouse cordonates, the size of the screen, the frameRate
+}
+void keyPressed() {              // called when a key is pressed
+  stage.keyIsDown();             // check if all keys are pressed or not
+}
+void keyReleased() {             // called when a key is released
+  stage.keyIsUp();               // check if all keys are released or not
+}
+```
