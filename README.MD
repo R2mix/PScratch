@@ -10,11 +10,13 @@ On mac : ~/Documents/Processing/libraries/
 
 Advanced feature added : 
 ```java
-showHitbox = true // show the hitbox of your sprite
-hitboxW = 0;      // adjust the width of the hitbox of your sprite
-hitboxH = 0;      // adjust the height of the hitbox of your sprite
+showHitbox() // show the hitbox of your sprite
+modifyHitboxW = 0;      // adjust the width of the hitbox of your sprite
+modifyHitboxH = 0;      // adjust the height of the hitbox of your sprite
 spriteFolder("folder"); //change the folder of a sprite
 pick(); return color value on the mouse, coodonates of the mouse, size of the screen and frameRate
+sounds.loop(int numberOfTheSound)  //play the tageted sound in infinite loop
+display(PGraphics pg)   //display function can be used inside a PGraphics
 ```
 ### Motion
 
@@ -88,7 +90,7 @@ pick(); return color value on the mouse, coodonates of the mouse, size of the sc
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
 | ![Stop](web/assets/stop.png) | `stop(); exit(), stage.Pause(), stage.Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
-| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `drawClones(SpriteClassArray)` <br><br>` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
+| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `stage.drawClones(SpriteClassArray)` <br><br>` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
      
 
 ### Sensing
@@ -104,7 +106,7 @@ pick(); return color value on the mouse, coodonates of the mouse, size of the sc
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
-| ![loudness](web/assets/loudness.png) | `souds.loudness` | Return the volume of the microphone 0 - 100 |
+| ![sounds.loudness](web/assets/loudness.png) | `sounds.loudness` | Return the volume of the microphone 0 - 100 |
 | ![timer](web/assets/timer.png) | `stage.timer` | Return the time in sec since programme starts ou being reset|
 | ![resetTimer](web/assets/resetTimer.png) | `stage.resetTimer();` | Reset timer to 0|
 | ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |
@@ -135,10 +137,12 @@ import processing.sound.*;
 
 Cat cat;                        
 Stage stage;                    
+Sounds sounds;
 
 void setup() {                  
   size(800,600);
-  stage = new Stage(this, "scenes");   
+  stage = new Stage(this, "scenes");
+  sounds = new Sounds(stage, "sounds");
   cat= new Cat(); 
   cat.start();
 }                                
