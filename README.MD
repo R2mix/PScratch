@@ -1,4 +1,4 @@
-# PScratch-lib-1.0.1
+# PScratch-lib-1.0.2
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 Download latest release and unzip inside your processing libraries folder.
@@ -11,8 +11,8 @@ On mac : ~/Documents/Processing/libraries/
 Advanced feature added : 
 ```java
 showHitbox() // show the hitbox of your sprite
-modifyHitboxW = 0;      // adjust the width of the hitbox of your sprite
-modifyHitboxH = 0;      // adjust the height of the hitbox of your sprite
+modifyHitboxW(float hw);      // adjust the width of the hitbox of your sprite
+modifyHitboxH(float hh);      // adjust the height of the hitbox of your sprite
 spriteFolder("folder"); //change the folder of a sprite
 pick(); return color value on the mouse, coodonates of the mouse, size of the screen and frameRate
 sounds.loop(int numberOfTheSound)  //play the tageted sound in infinite loop
