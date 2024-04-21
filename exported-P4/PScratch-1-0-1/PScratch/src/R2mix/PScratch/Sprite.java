@@ -585,7 +585,7 @@ public abstract class Sprite implements Runnable {
   }
 
   public void modifyHitboxH(float hh) {
-    hitboxW = hh;
+    hitboxH = hh;
   }
 
   public boolean touch(float xx, float yy, float l, float h, float di, String rotationStyleOther) { // square hitbox
