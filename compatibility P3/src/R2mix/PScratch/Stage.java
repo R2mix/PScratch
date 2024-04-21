@@ -10,7 +10,7 @@ import processing.data.StringList;
 
 public class Stage {
   public PApplet myParent;
-  public final static String VERSION = "PScratch-1.0.0 by R2MIX", WEBSITE = "https://github.com/r2mix/pscratch";
+  public final static String VERSION = "PScratch-1.0.2 by R2MIX", WEBSITE = "https://github.com/r2mix/pscratch";
 
   // similare to sprite class but more light
   // -----------ASK
