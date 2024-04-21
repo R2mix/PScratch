@@ -1,4 +1,4 @@
-# PScratch-lib-1.0.1
+# PScratch-lib-1.0.2
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 Download latest release and unzip inside your processing libraries folder.
