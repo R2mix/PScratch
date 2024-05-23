@@ -12,7 +12,7 @@ public abstract class Sprite implements Runnable {
                                                                                           // sprite
   public int costume, sens = 1; // actual costume and size of the sprite
   public float hitboxW, hitboxH; // change the size of the hitbox for being more precise
-  public boolean showHitbox; // show the hitbox for set it up
+  public float offsetX, offsetY; // offset of the displayed image independently of the hitbox
   public int colorEffectValue = 0; // defaut color effect value (no coloration)
   public int ghostEffectValue = 255; // defaut ghost effect value (visible)
   private boolean dragable, display = true; // boolean for rotation, dragable and is displaying, (private) call it by
@@ -74,10 +74,12 @@ public abstract class Sprite implements Runnable {
     myParent.tint(255, ghostEffectValue); // color and ghost effect
     myParent.imageMode(PConstants.CENTER); // center the image like scratch does
     if (display) {
-      myParent.image(costumes[costume], 0, 0); // showing the image (can be hiding and disable the color detection)
+      myParent.image(costumes[costume], offsetX, offsetY); // showing the image (can be hiding and disable the color
+                                                           // detection)
       if (colorEffectValue > 0) {
         colorEffectTint(colorEffectValue);
-        myParent.image(costumes[costume], 0, 0); // showing the image (can be hiding and disable the color detection)
+        myParent.image(costumes[costume], offsetX, offsetY); // showing the image (can be hiding and disable the color
+                                                             // detection)
       }
     }
 
@@ -90,7 +92,8 @@ public abstract class Sprite implements Runnable {
     dragSprite(); // if the function dragable is called, sprite go to mouse when it's pressed
   }
 
-  // ??????? version with pg for insertion into a PGraphic, for now entended for beta, futur poly or overr
+  // ??????? version with pg for insertion into a PGraphic, for now entended for
+  // beta, futur poly or overr
   public void display(PGraphics pg) {
     pg.beginDraw();
     spriteWidth = (float) (costumes[costume].width * spriteSize * 0.01); // set the spriteWidth to the actual costume
@@ -107,10 +110,12 @@ public abstract class Sprite implements Runnable {
     pg.tint(255, ghostEffectValue); // color and ghost effect
     pg.imageMode(PConstants.CENTER); // center the image like scratch does
     if (display) {
-      pg.image(costumes[costume], 0, 0); // showing the image (can be hiding and disable the color detection)
+      pg.image(costumes[costume], offsetX, offsetY); // showing the image (can be hiding and disable the color
+                                                     // detection)
       if (colorEffectValue > 0) {
         colorEffectTint(colorEffectValue, pg);
-        pg.image(costumes[costume], 0, 0); // showing the image (can be hiding and disable the color detection)
+        pg.image(costumes[costume], offsetX, offsetY); // showing the image (can be hiding and disable the color
+                                                       // detection)
       }
     }
 
@@ -124,27 +129,50 @@ public abstract class Sprite implements Runnable {
     pg.endDraw();
   }
 
-  public boolean keyIsPressed(char k) { // call this boolean for interact width key
+  // deleting the clone is the boolean become true, avoid bad remove from array
+  // and crash
+  public boolean deleteThisClone = false;
 
-    if (stageSprite.keyStored.contains(k)) { // if array contain the letter of the keyBoard
-      return true;
-    } else {
-      return false;
-    }
+  // call this fuction instead changing the boolean, more accurate to scratch but
+  // both works
+  public void deleteThisClone() {
+    deleteThisClone = true;
+  }
+
+  public boolean keyIsPressed(char k) { // call this boolean for interact width key
+    return stageSprite.keyIsPressed(k);
   }
 
   public boolean keyIsPressed(String k) { // call this boolean for interact width keycoded
+    return stageSprite.keyIsPressed(k);
+  }
 
-    if (k == "upArrow" && stageSprite.keyStoredCoded.contains(38)) { // if array contain the keycod of the keyBoard
-      return true;
-    } else if (k == "leftArrow" && stageSprite.keyStoredCoded.contains(37)) {
-      return true;
-    } else if (k == "rightArrow" && stageSprite.keyStoredCoded.contains(39)) {
-      return true;
-    } else if (k == "downArrow" && stageSprite.keyStoredCoded.contains(40)) {
-      return true;
-    } else {
-      return false;
+  public void modifyOffsetX(int offset) {
+    offsetX = offset;
+  }
+
+  public void modifyOffsetY(int offset) {
+    offsetY = offset;
+  }
+
+  // animate with frameCount, call it into draw
+  public void animate(int startAnimation, int endAnimation, int frameAnimation){
+    if (myParent.frameCount % frameAnimation == 0) {
+      nextCostume();
+      switchCostumeTo(costume%endAnimation);
+      if (costume == 0) switchCostumeTo(startAnimation);
+    }
+  }
+
+  // animate with time in MS and breakcondition, call it into run
+  public void animate(int startAnimation, int endAnimation, int time, boolean breakPoint){
+    switchCostumeTo(startAnimation);
+    for(int i =0; i < endAnimation; i++){
+      if(breakPoint){
+        break;
+      }
+      myParent.delay(time);
+      nextCostume();
     }
   }
 
@@ -576,8 +604,42 @@ public abstract class Sprite implements Runnable {
   }
 
   public void showHitbox() {
-    showHitbox = true;
-    touch(this);
+
+    // size
+    float hL = spriteWidth / 2 + hitboxW; // for changing the hitbox size
+    float hH = spriteHeight / 2 + hitboxH;
+    float directionSprite1 = 0;
+
+    if (rotationStyle == "all around") {
+      directionSprite1 = direction;
+    } else {
+      directionSprite1 = 0;
+    }
+
+    float cx1 = x + hL * PApplet.cos(PApplet.radians(directionSprite1))
+        - hH * PApplet.sin(PApplet.radians(directionSprite1));
+    float cy1 = y + hL * PApplet.sin(PApplet.radians(directionSprite1))
+        + hH * PApplet.cos(PApplet.radians(directionSprite1));
+    float cx2 = x - hL * PApplet.cos(PApplet.radians(directionSprite1))
+        - hH * PApplet.sin(PApplet.radians(directionSprite1));
+    float cy2 = y - hL * PApplet.sin(PApplet.radians(directionSprite1))
+        + hH * PApplet.cos(PApplet.radians(directionSprite1));
+    float cx3 = x - hL * PApplet.cos(PApplet.radians(directionSprite1))
+        + hH * PApplet.sin(PApplet.radians(directionSprite1));
+    float cy3 = y - hL * PApplet.sin(PApplet.radians(directionSprite1))
+        - hH * PApplet.cos(PApplet.radians(directionSprite1));
+    float cx4 = x + hL * PApplet.cos(PApplet.radians(directionSprite1))
+        + hH * PApplet.sin(PApplet.radians(directionSprite1));
+    float cy4 = y + hL * PApplet.sin(PApplet.radians(directionSprite1))
+        - hH * PApplet.cos(PApplet.radians(directionSprite1));
+
+    myParent.push();
+    myParent.strokeWeight(4);
+    myParent.point(cx1, cy1);
+    myParent.point(cx2, cy2);
+    myParent.point(cx3, cy3);
+    myParent.point(cx4, cy4);
+    myParent.pop();
   }
 
   public void modifyHitboxW(float hw) {
@@ -589,14 +651,12 @@ public abstract class Sprite implements Runnable {
   }
 
   public boolean touch(float xx, float yy, float l, float h, float di, String rotationStyleOther) { // square hitbox
-                                                                                                    // comparing two
-                                                                                                    // position and
+    // comparing two
+    // position and
     // size
     float hL = spriteWidth / 2 + hitboxW; // for changing the hitbox size
     float hH = spriteHeight / 2 + hitboxH;
 
-    // set rotation style setRotationStyle("left-right"); setRotationStyle("don't
-    // rotate"); setRotationStyle("all around");
     float directionSprite1 = 0;
     float directionSpriteOther = 0;
 
@@ -650,16 +710,17 @@ public abstract class Sprite implements Runnable {
     float[] otherYy = { cyother1, cyother2, cyother3, cyother4 };
 
     boolean returnTouch = false;
-
-    if (showHitbox) {
-      myParent.push();
-      myParent.strokeWeight(10);
-      myParent.point(cx1, cy1);
-      myParent.point(cx2, cy2);
-      myParent.point(cx3, cy3);
-      myParent.point(cx4, cy4);
-      myParent.pop();
-    }
+    /*
+     * if (showHitbox) {
+     * myParent.push();
+     * myParent.strokeWeight(10);
+     * myParent.point(cx1, cy1);
+     * myParent.point(cx2, cy2);
+     * myParent.point(cx3, cy3);
+     * myParent.point(cx4, cy4);
+     * myParent.pop();
+     * }
+     */
 
     for (int i = 0; i < 4; i++) {
       float mx = spriteXx[i] - xx;
@@ -696,8 +757,12 @@ public abstract class Sprite implements Runnable {
   }
 
   public boolean touch(Sprite other) {
-    if (touch(other.x, other.y, other.spriteWidth, other.spriteHeight, other.direction, other.rotationStyle)
-        && other.display && display) {
+
+    float hL2 = other.spriteWidth + other.hitboxW * 2; // for changing the hitbox size, note divided by 2 and hitbowW is
+                                                       // * 2 beacause all is divided inside touch function
+    float hH2 = other.spriteHeight + other.hitboxH * 2;
+
+    if (touch(other.x, other.y, hL2, hH2, other.direction, other.rotationStyle) && other.display && display) {
       return true;
     } else {
       return false;

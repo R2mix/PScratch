@@ -10,7 +10,7 @@ import processing.data.StringList;
 
 public class Stage {
   public PApplet myParent;
-  public final static String VERSION = "PScratch-1.0.2 by R2MIX", WEBSITE = "https://github.com/r2mix/pscratch";
+  public final static String VERSION = "PScratch-1.1.0 by R2MIX", WEBSITE = "www.github.com/r2mix/pscratch";
 
   // similare to sprite class but more light
   // -----------ASK
@@ -33,8 +33,9 @@ public class Stage {
       myParent.fill(0, 100, 255);
       myParent.circle(myParent.width - 20, myParent.height - 20, 24);
       myParent.pop();
-      if (PApplet.dist(myParent.mouseX, myParent.mouseY, myParent.width - 20, myParent.height - 20) < 24 && myParent.mousePressed) { // button or return for submit and reset
-                                                                                // all
+      if (PApplet.dist(myParent.mouseX, myParent.mouseY, myParent.width - 20, myParent.height - 20) < 24
+          && myParent.mousePressed) { // button or return for submit and reset
+        // all
         answer = textScreen;
         textScreen = "";
         data.clear();
@@ -54,12 +55,12 @@ public class Stage {
           data.append(charKey); // add to data
         }
       }
-      textScreen = PApplet.join(data.array(), ""); // join the array in a single string
+      textScreen = PApplet.join(data.toArray(), ""); // join the array in a single string
 
       if (myParent.key == PConstants.ENTER) { // send answer and reset
         if (data.size() > 0)
-          data.remove(data.size() - 1); // avoir blank line caused by enter  toArray
-        textScreen = PApplet.join(data.array(), "");
+          data.remove(data.size() - 1); // avoir blank line caused by enter toArray
+        textScreen = PApplet.join(data.toArray(), "");
         answer = textScreen;
         textScreen = "";
         data.clear();
@@ -72,7 +73,7 @@ public class Stage {
   // ----------------------------------------------------------KEYISDOWN------------------------------------------------------------------
   public ArrayList<Character> keyStored = new ArrayList<Character>(); // for qwerty key
   public ArrayList<Integer> keyStoredCoded = new ArrayList<Integer>(); // for coded key as arrow...
- 
+
   public boolean keyIsPressed(char k) { // call this boolean for interact width key
 
     if (keyStored.contains(k)) { // if array contain the letter of the keyBoard
@@ -84,7 +85,7 @@ public class Stage {
 
   public boolean keyIsPressed(String k) { // call this boolean for interact width keycoded
 
-    if (k == "upArrow" && keyStoredCoded.contains(38)) { // if array contain the keycod of the keyBoard
+    if (k == "upArrow" && keyStoredCoded.contains(38)) { // if array contain the keycode of the keyBoard, some aren't keycode but use string
       return true;
     } else if (k == "leftArrow" && keyStoredCoded.contains(37)) {
       return true;
@@ -92,25 +93,48 @@ public class Stage {
       return true;
     } else if (k == "downArrow" && keyStoredCoded.contains(40)) {
       return true;
+    } else if (k == "shift" && keyStoredCoded.contains(16)) {
+      return true;
+    } else if (k == "enter" &&  keyStored.contains(PConstants.ENTER)) {
+      return true;
+    } else if (k == "alt" && keyStoredCoded.contains(18)) {
+      return true;
+    } else if (k == "control" && keyStoredCoded.contains(17)) {
+      return true;
+    }else if (k == "tab" && keyStored.contains(PConstants.TAB)) {
+      return true;
+    }else if (k == "escape" && keyStored.contains(PConstants.ESC)) {
+      return true;
+    }else if (k == "backspace" && keyStored.contains(PConstants.BACKSPACE)) {
+      return true;
+    }else if (k == "delete" && keyStored.contains(PConstants.DELETE)) {
+      return true;
+    }else if (k == "caps lock" && keyStoredCoded.contains(20)) {
+      return true;
+    }else if (k == "return" &&  keyStored.contains(PConstants.RETURN)) {
+      return true;
     } else {
       return false;
     }
   }
 
-  public void keyIsDown() {                                                    //call it into keyPressed void
+  public void keyIsDown() { // call it into keyPressed void
     keyType();
-    if (!isAsking) {                                                           // disable key when asking
-      if (!keyStored.contains(myParent.key) && myParent.key != PConstants.CODED) keyStored.add(myParent.key);        // store in array if not already and not coded, different array for coded
-      if (!keyStoredCoded.contains((int)(myParent.keyCode)) && myParent.key == PConstants.CODED) keyStoredCoded.add((int)(myParent.keyCode));
+    if (!isAsking) { // disable key when asking
+      if (!keyStored.contains(myParent.key) && myParent.key != PConstants.CODED)
+        keyStored.add(myParent.key); // store in array if not already and not coded, different array for coded
+      if (!keyStoredCoded.contains((int) (myParent.keyCode)) && myParent.key == PConstants.CODED)
+        keyStoredCoded.add((int) (myParent.keyCode));
     }
   }
 
-  public void keyIsUp() {                                                      //call it into keyReleased void and remove from arrays
-    if (keyStored.contains(myParent.key) && myParent.key != PConstants.CODED) keyStored.remove(keyStored.indexOf(myParent.key));
-    if (keyStoredCoded.contains((int)(myParent.keyCode)) && myParent.key == PConstants.CODED) keyStoredCoded.remove(keyStoredCoded.indexOf((int)(myParent.keyCode)));
+  public void keyIsUp() { // call it into keyReleased void and remove from arrays
+    if (keyStored.contains(myParent.key) && myParent.key != PConstants.CODED)
+      keyStored.remove(keyStored.indexOf(myParent.key));
+    if (keyStoredCoded.contains((int) (myParent.keyCode)) && myParent.key == PConstants.CODED)
+      keyStoredCoded.remove(keyStoredCoded.indexOf((int) (myParent.keyCode)));
   }
 
-  
   // -----------------------------------------------------------END of
   // KEY----------------------------------------------------------------------
 
@@ -118,16 +142,18 @@ public class Stage {
   // -------------------------------------------------------------------
   public void drawClones(ArrayList<? extends Sprite> clones) {
     for (int i = clones.size() - 1; i >= 0; i--) {
+     
       clones.get(i).draw(); // call la méthode "draw" de l'interface
+      if (clones.get(i).deleteThisClone) clones.remove(i);
     }
   }
   // ---------------------------------------------------------- END clone system
   // ----------------------------------------------------------------
 
-  public void Wait(float time) {                                             // wait in sec to millis
-    myParent.delay((int)(time * 1000));
+  public void Wait(float time) { // wait in sec to millis
+    myParent.delay((int) (time * 1000));
   }
- 
+
   public void Play() {
     myParent.loop();
   }
@@ -136,8 +162,11 @@ public class Stage {
     myParent.noLoop();
   }
 
-  public void pick() {                                                   // call it if you want to get the color of a pixel with you mouse when you click
-    if (myParent.mousePressed)PApplet.println("color : #" + PApplet.hex(myParent.get(myParent.mouseX, myParent.mouseY)), "mouseX : "+ myParent.mouseX, "mouseY : " + myParent.mouseY, "width : " + myParent.width, "height : " + myParent.height, "frameRate : " + (int)(myParent.frameRate ));
+  public void pick() { // call it if you want to get the color of a pixel with you mouse when you click
+    if (myParent.mousePressed)
+      PApplet.println("color : #" + PApplet.hex(myParent.get(myParent.mouseX, myParent.mouseY)),
+          "mouseX : " + myParent.mouseX, "mouseY : " + myParent.mouseY, "width : " + myParent.width,
+          "height : " + myParent.height, "frameRate : " + (int) (myParent.frameRate));
   }
 
   private long previousMillis = 0;
@@ -174,7 +203,7 @@ public class Stage {
   public PImage[] spriteFolder(String folder) { // verify how many items arent images and import them
     PImage[] costumes = null;
     try {
-      String path = myParent.sketchPath()+ "/data/" + folder; // search for folderpath
+      String path = myParent.sketchPath() + "/data/" + folder; // search for folderpath
       String[] filenames = listFileNames(path); // search filenames
       java.util.Arrays.sort(filenames); // Sorts all files by name
       if (printFolder)
@@ -185,13 +214,14 @@ public class Stage {
       int loadedCostume = 0;
       for (int i = 0; i < filenames.length; i++) { // iterate for searching each file and check if it's an image before
                                                    // importing them
-        String extention = filenames[i].substring(filenames[i].lastIndexOf(".")); // separate extention for separate img to
-                                                                              // sounds and prevent otherfiles
-        if (extention.equals(".png") || extention.equals(".jpg") 
-            || extention.equals(".jpeg")|| extention.equals(".tga") 
-            || extention.equals(".gif") || extention.equals(".PNG") 
+        String extention = filenames[i].substring(filenames[i].lastIndexOf(".")); // separate extention for separate img
+                                                                                  // to
+        // sounds and prevent otherfiles
+        if (extention.equals(".png") || extention.equals(".jpg")
+            || extention.equals(".jpeg") || extention.equals(".tga")
+            || extention.equals(".gif") || extention.equals(".PNG")
             || extention.equals(".JPG") || extention.equals(".JPEG")
-            || extention.equals(".TGA") || extention.equals(".GIT")) {
+            || extention.equals(".TGA") || extention.equals(".GIF")) {
           totalNumberOfCostumes++; // var for knowing the number of images
         }
       }
@@ -199,11 +229,11 @@ public class Stage {
                                                     // totalNumberOfCostumes var
       for (int i = 0; i < filenames.length; i++) { // iterate for importing them
         String extention = filenames[i].substring(filenames[i].lastIndexOf(".")); // check extention prevent fail
-        if (extention.equals(".png") || extention.equals(".jpg") 
-            || extention.equals(".jpeg")|| extention.equals(".tga") 
-            || extention.equals(".gif") || extention.equals(".PNG") 
+        if (extention.equals(".png") || extention.equals(".jpg")
+            || extention.equals(".jpeg") || extention.equals(".tga")
+            || extention.equals(".gif") || extention.equals(".PNG")
             || extention.equals(".JPG") || extention.equals(".JPEG")
-            || extention.equals(".TGA") || extention.equals(".GIT")) {
+            || extention.equals(".TGA") || extention.equals(".GIF")) {
           costumes[loadedCostume] = myParent.loadImage(path + "/" + filenames[i]); // load images
           loadedCostume++;
         }
@@ -260,7 +290,7 @@ public class Stage {
       File sousDossier = sousDossiers[i];
       if (sousDossier.isDirectory()) {
         String nomSousDossier = sousDossier.getName();
-        PImage[] tableauImages = spriteFolder(subFolder + "/" +nomSousDossier);
+        PImage[] tableauImages = spriteFolder(subFolder + "/" + nomSousDossier);
         allAssetImages.put(nomSousDossier, tableauImages);
       }
     }
@@ -275,10 +305,10 @@ public class Stage {
     myParent.push();
     myParent.tint(255, ghostEffectValue);
     myParent.image(stage[backdrop], 0, 0, myParent.width, myParent.height);
-      if (colorEffectValue > 0) {
-        colorEffectTint(colorEffectValue);
-        myParent.image(stage[backdrop], 0, 0, myParent.width, myParent.height);
-      }
+    if (colorEffectValue > 0) {
+      colorEffectTint(colorEffectValue);
+      myParent.image(stage[backdrop], 0, 0, myParent.width, myParent.height);
+    }
     myParent.pop();
     textToScreen();
   }
@@ -297,12 +327,12 @@ public class Stage {
   }
 
   private void colorEffectTint(int valColor) {
-    valColor = valColor%360; // limit to 360 for a circle of color
-    int redValue = (int)(128 + 127 * PApplet.cos(PApplet.radians(valColor)));
-    int greenValue = (int)(128 + 127 * PApplet.cos(PApplet.radians(valColor - 120)));
-    int blueValue = (int)(128 + 127 * PApplet.cos(PApplet.radians(valColor - 240)));
+    valColor = valColor % 360; // limit to 360 for a circle of color
+    int redValue = (int) (128 + 127 * PApplet.cos(PApplet.radians(valColor)));
+    int greenValue = (int) (128 + 127 * PApplet.cos(PApplet.radians(valColor - 120)));
+    int blueValue = (int) (128 + 127 * PApplet.cos(PApplet.radians(valColor - 240)));
     int currentColor = myParent.color(redValue, greenValue, blueValue); // set de current color
-    myParent.tint(currentColor, PApplet.constrain(valColor * 5 * ghostEffectValue/255, 0, 360)); // apply to the image
+    myParent.tint(currentColor, PApplet.constrain(valColor * 5 * ghostEffectValue / 255, 0, 360)); // apply to the image
   }
 
   public void changeColorEffectBy(int col) {
