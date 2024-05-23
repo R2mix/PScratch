@@ -1,4 +1,4 @@
-# PScratch-lib-1.0.2
+# PScratch-lib-1.1.0
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 Download latest release and unzip inside your processing libraries folder.
@@ -13,10 +13,18 @@ Advanced feature added :
 showHitbox() // show the hitbox of your sprite
 modifyHitboxW(float hw);      // adjust the width of the hitbox of your sprite
 modifyHitboxH(float hh);      // adjust the height of the hitbox of your sprite
+modifyOffsetX(int offset)     // adjust the position X of the center of the image independently of the hitbox
+modifyOffsetY(int offset)     // adjust the position Y of the center of the image independently of the hitbox
 spriteFolder("folder"); //change the folder of a sprite
 pick(); return color value on the mouse, coodonates of the mouse, size of the screen and frameRate
 sounds.loop(int numberOfTheSound)  //play the tageted sound in infinite loop
 display(PGraphics pg)   //display function can be used inside a PGraphics
+------------------------------------------------------------------------------
+BETA
+// animate with frameCount, call it into draw
+animate(int startAnimation, int endAnimation, int frameAnimation)
+// animate with time in MS and breakcondition, call it into run
+animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 ```
 ### Motion
 
@@ -90,7 +98,7 @@ display(PGraphics pg)   //display function can be used inside a PGraphics
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
 | ![Stop](web/assets/stop.png) | `stop(); exit(), stage.Pause(), stage.Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
-| ![clones](web/assets/clones.png) | ` ArrayList<SpriteClass> SpriteClassArray = new ArrayList<SpriteClass>();` <br><br>  `SpriteClassArray.add(new SpriteClass());` <br><br>  `stage.drawClones(SpriteClassArray)` <br><br>` SpriteClassArray.remove(this);`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
+| ![clones](web/assets/clones.png) | ` ArrayList<Sprite> SpriteClassArrayName = new ArrayList<Sprite>();` <br><br>  `SpriteClassArrayName.add(new SpriteClassName());` <br><br>  `stage.drawClones(SpriteClassArrayName);` <br><br>` deleteThisClone();`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
      
 
 ### Sensing
@@ -101,7 +109,7 @@ display(PGraphics pg)   //display function can be used inside a PGraphics
 | ![distanceTo](web/assets/distance.png) | `distanceTo("mouse"); distanceTo(Sprite); distanceTo(x, y);` | Return the distance between the center of the sprite and the mouse, a sprite or coordinates |
 | ![Ask](web/assets/ask.png) | `ask("Question ?"); askAndWait("Question ?");`  | The sprite will ask to the user a key typed question to the user. AskAndWait stop the programme until the answer is completed, use it inside run()  |
 | ![answer](web/assets/answer.png) | `answer`  | Return the answer of the ask function |
-| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. For the arrows, it have to be a string `upArrow, leftArrow, downArrow, rightArrow`. |
+| ![key pressed](web/assets/sprite_key_pressed.png) | `keyIsPressed('a'), keyIsPressed("upArrow")`  | Return true if the named key is pressed. Specials keys, need to be in a string `upArrow, leftArrow, downArrow, rightArrow, shift, enter (for windows & linux), return (on osX), alt, control, tab, escape, backspace, delete, caps lock`. |
 | ![mouse down](web/assets/sprite_mouse_down.png) | `mousePressed` | Return true if the mouse is pressed. It should be called inside a `if` |
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
