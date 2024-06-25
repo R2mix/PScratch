@@ -160,14 +160,14 @@ public abstract class Sprite implements Runnable {
     if (myParent.frameCount % frameAnimation == 0) {
       nextCostume();
       switchCostumeTo(costume%endAnimation);
-      if (costume == 0) switchCostumeTo(startAnimation);
+      if (costume < startAnimation) switchCostumeTo(startAnimation);
     }
   }
 
   // animate with time in MS and breakcondition, call it into run
   public void animate(int startAnimation, int endAnimation, int time, boolean breakPoint){
     switchCostumeTo(startAnimation);
-    for(int i =0; i < endAnimation; i++){
+    for(int i = startAnimation; i < endAnimation; i++){
       if(breakPoint){
         break;
       }
