@@ -17,15 +17,14 @@ public class Sounds {
     // private float pitch = 1, volume = 1, pan = 0; //defaut sounds values
     private float[] pitch, volume, pan;
 
-    private Stage stageSprite;
-    private PApplet myParent;
+    private final Stage stageSprite;
+    private final PApplet myParent;
 
     // This function returns all the files in a directory as an array of Strings
     private String[] listFileNames(String dir) { // called in sprite class, scene class and sound void
         File file = new File(dir);
         if (file.isDirectory()) {
-            String names[] = file.list();
-            return names;
+            return file.list();
         } else { // If it's not a directory
             return null;
         }
@@ -108,6 +107,11 @@ public class Sounds {
         sounds[numeroSon].play(pitch[numeroSon], volume[numeroSon]);
         if (sounds[numeroSon].channels() == 1)
             sounds[numeroSon].pan(pan[numeroSon]);
+    }
+    public void playSoundNoOverlap(int numeroSon) { // play a sound from 0 with pitch[i] value and volume value
+       if (!(sounds[numeroSon].isPlaying() && sounds[numeroSon].percent() < 100)) {
+           playSound(numeroSon);
+       }
     }
 
     public void loop(int numeroSon) { // play a sound from 0 with pitch[i] value and volume value
