@@ -1,16 +1,17 @@
 import R2mix.PScratch.*;
 import processing.sound.*;
 
-Cat cat;                        
-Stage stage;                    
+Cat cat;
+Stage stage;
 
-void setup() {                  
+void setup() {
   fullScreen();
-  stage = new Stage(this, "scenes");   
-  cat= new Cat();    
-}                                
+  pixelDensity(1);
+  stage = new Stage(this, "scenes");
+  cat= new Cat();
+}
 
-void draw () {                 
-  stage.backdrops();            
-  cat.draw();                    
-}                               
+void draw () {
+  stage.backdrops();
+  cat.draw();
+}
