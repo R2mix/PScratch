@@ -78,7 +78,7 @@ animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 
 | Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `sounds.playSoundUntilDown(0);` `playSoundNoOverlap(0);` | Play a sound and wait until is finished. It should be call inside run() function, noOverlap can be called anywhere |
+| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `sounds.playSoundUntilDown(0);` `sounds.playSoundNoOverlap(0);` | Play a sound and wait until is finished. It should be call inside run() function, noOverlap can be called anywhere |
 | ![playSound](web/assets/startsound.png) | `sounds.playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
 | ![stopAllSound](web/assets/stopAllsounds.png) | `sounds.stopAllSound();` `sounds.stopSound(0);` | Stop all sound, stop a specific sound |
 | ![changeSoundEffect](web/assets/changeeffect.png) | `sounds.changePitchEffectBy(100); sounds.changePitchEffectBy(100, 0);` `sounds.changePanEffectBy(0); sounds.changePanEffectBy(0, 0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds), , the second argument is for a specific sound |
