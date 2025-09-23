@@ -1,4 +1,4 @@
-# PScratch-lib-1.1.1
+# PScratch-lib-1.2.0
 
 PScratch is a library for processing that give the possibility to use basic scratch functions for learning processing.
 Download latest release and unzip inside your processing libraries folder.
@@ -10,6 +10,8 @@ On mac : ~/Documents/Processing/libraries/
 
 Advanced feature added : 
 ```java
+
+pixelDensity(1) // must be used in the setup() function on high DPI screens. This will be fixed later.
 showHitbox() // show the hitbox of your sprite
 modifyHitboxW(float hw);      // adjust the width of the hitbox of your sprite
 modifyHitboxH(float hh);      // adjust the height of the hitbox of your sprite
@@ -20,7 +22,7 @@ pick(); return color value on the mouse, coodonates of the mouse, size of the sc
 sounds.loop(int numberOfTheSound)  //play the tageted sound in infinite loop
 display(PGraphics pg)   //display function can be used inside a PGraphics
 ------------------------------------------------------------------------------
-BETA
+NAME: a variable storing the name of the sprite. The default name is now the folder name.
 // animate with frameCount, call it into draw
 animate(int startAnimation, int endAnimation, int frameAnimation)
 // animate with time in MS and breakcondition, call it into run
@@ -76,7 +78,7 @@ animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 
 | Scratch________________________  | Processing | Description |
 | :--- | :--- | :--- |
-| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `sounds.playSoundUntilDown(0);` | Play a sound and wait until is finished. It should be call inside run() function |
+| ![playSoundUntilDown](web/assets/startsoundentirely.png) | `sounds.playSoundUntilDown(0);` `sounds.playSoundNoOverlap(0);` | Play a sound and wait until is finished. It should be call inside run() function, noOverlap can be called anywhere |
 | ![playSound](web/assets/startsound.png) | `sounds.playSound(0);` | Play a sound. If the sound is called again it will stop, rewind and play it again |
 | ![stopAllSound](web/assets/stopAllsounds.png) | `sounds.stopAllSound();` `sounds.stopSound(0);` | Stop all sound, stop a specific sound |
 | ![changeSoundEffect](web/assets/changeeffect.png) | `sounds.changePitchEffectBy(100); sounds.changePitchEffectBy(100, 0);` `sounds.changePanEffectBy(0); sounds.changePanEffectBy(0, 0);`| Change the pitch effect to positive or negative. Change the left-right panning of a sound (Only work with monophonics sounds), , the second argument is for a specific sound |
@@ -85,7 +87,9 @@ animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 | ![changeVolumeBy](web/assets/changeVolume.png) | `sounds.changeVolumeBy(-10); sounds.changeVolumeBy(-10, 0);` | Change the volume of the sounds, the second argument is for a specific sound |
 | ![setVolumeBy](web/assets/setVolume.png) | `sounds.setVolumeTo(100); sounds.setVolumeTo(100, 0);` | Set value to the volume of the sounds, the second argument is for a specific sound |
 | ![volume](web/assets/volume.png) | `sounds.volume[0];` | return value of the volume of a specific sounds |
-
+| ![getDuration](web/assets/getDuration.png) | `sounds.getDuration(0);` | returns the duration of a sound file in seconds |
+| ![getActualTime](web/assets/getActualTime.png) | `sounds.getActualTime(0);` | returns the actual time in seconds that a sound has been playing |
+| ![isPlaying](web/assets/isPlaying.png) | `sounds.isPlaying(0);` | returns a boolean indicating if the sound is currently playing |
 
 ### Control
 
@@ -98,7 +102,7 @@ animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 | ![if, else](web/assets/else.png) | `if(//condition){//code goes here}`| Execute the code inside the `if`, if the condition is complete. If the condition is not complete, it will execute the code inside `else`. |
 | ![while](web/assets/while.png) | `while(//condition){//code goes here}` | Wait or repeat until condition is done. It should be call inside `run()` function |
 | ![Stop](web/assets/stop.png) | `stop(); exit(), stage.Pause(), stage.Play()` | Stop the program or stop the rn thread of the sprite if inside a spriteClass, quit the program, pause the program, relauch the program |
-| ![clones](web/assets/clones.png) | ` ArrayList<Sprite> SpriteClassArrayName = new ArrayList<Sprite>();` <br><br>  `SpriteClassArrayName.add(new SpriteClassName());` <br><br>  `stage.drawClones(SpriteClassArrayName);` <br><br>` deleteThisClone();`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class | 
+| ![clones](web/assets/clones.png) | ` ArrayList<Sprite> SpriteClassArrayName = new ArrayList<Sprite>();` <br><br>  `SpriteClassArrayName.add(new SpriteClassName());` <br><br>  `stage.drawClones(SpriteClassArrayName);` <br><br>` deleteThisClone();`<br><br>` stage.sortClones(ArrayList, String , boolean);`| The array that contains the class to clone <br><br><br><br> Add a new class instance in the ArrayList <br><br> Display each clone <br><br> Remove the clone from the ArrayList, should be call inside the class<br><br>can sort clones by a specific int or float parameter. For example: y coordinate. | 
      
 
 ### Sensing
@@ -114,7 +118,7 @@ animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
 | ![mouse x](web/assets/sprite_mouse_x.png) | `mouseX` | Return the x position of the mouse on the screen |
 | ![mouse y](web/assets/sprite_mouse_y.png) | `mouseY` | Return the y position of the mouse on the screen |
 | ![set drag mode](web/assets/draggable.png) | `setDragMode(true);` | Allow user to click and move the sprite with the mouse |
-| ![sounds.loudness](web/assets/loudness.png) | `sounds.loudness` | Return the volume of the microphone 0 - 100 |
+| ![sounds.loudness](web/assets/loudness.png) | `sounds.loudness` | Return the volume of the microphone 0 - 100, openMicrophone(): must be called in setup() before using loudness(), it will not start automatically. |
 | ![timer](web/assets/timer.png) | `stage.timer` | Return the time in sec since programme starts ou being reset|
 | ![resetTimer](web/assets/resetTimer.png) | `stage.resetTimer();` | Reset timer to 0|
 | ![time](web/assets/sprite_current_time.png) | `year();`,`month();`, `day();`, `hour();`, `minute();`, `second();`, `millis();` | Return the current year, month, day... |

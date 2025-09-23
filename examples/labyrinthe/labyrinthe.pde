@@ -7,7 +7,7 @@ Sounds sounds;
 
 void setup() {
   size(800, 600);
-
+  pixelDensity(1);
   stage = new Stage(this, "scenes");
   sounds = new Sounds(stage, "sounds");
   chick = new Chick();

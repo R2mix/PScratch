@@ -7,6 +7,7 @@ Sounds sounds;
 
 void setup() {
   size(800, 600);
+  pixelDensity(1);
   stage = new Stage(this, "scenes");
   // loadSounds into soundsFolder (can be renamed)
   sounds = new Sounds(stage, "sounds");
