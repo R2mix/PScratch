@@ -27,6 +27,7 @@ NAME: a variable storing the name of the sprite. The default name is now the fol
 animate(int startAnimation, int endAnimation, int frameAnimation)
 // animate with time in MS and breakcondition, call it into run
 animate(int startAnimation, int endAnimation, int time, boolean breakPoint)
+//
 ```
 ### Motion
 
