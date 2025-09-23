@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import processing.core.*;
 
 public abstract class Sprite implements Runnable {
-
+    public String NAME;
     private final PApplet myParent;
     private final Stage stageSprite;
     private final Thread thread; // thread for each sprite
@@ -15,7 +15,7 @@ public abstract class Sprite implements Runnable {
     public float offsetX, offsetY; // offset of the displayed image independently of the hitbox
     public int colorEffectValue = 0; // defaut color effect value (no coloration)
     public int ghostEffectValue = 255; // defaut ghost effect value (visible)
-    private boolean draggable, display = true; // boolean for rotation, dragable and is displaying, (private) call it by
+    private boolean draggable, display = true, isStarted; // boolean for rotation, dragable and is displaying, (private) call it by, verify is thread is started
     // the named functions
     public PImage[] costumes; // costumes is an array of images
     public String rotationStyle = "all around";
@@ -27,30 +27,42 @@ public abstract class Sprite implements Runnable {
         myParent = stageSprite.myParent;
         x = myParent.width / 2; // default position
         y = myParent.height / 2;
-        costumes = stageSprite.allAssetImages.get(folderName); // create a reference to the mainImages
+        if (folderName != null) {
+            costumes = stageSprite.allAssetImages.get(folderName); // create a reference to the mainImages
+            NAME = folderName;
+        }
     }
 
- /* public Sprite(Stage s){
-    this(s, )
-  }*/
+  public Sprite(Stage s){
+    this(s, "");
+      NAME = this.getClass().getSimpleName();
+      costumes = stageSprite.allAssetImages.get(NAME); // create a reference to the mainImages
+  }
+
+  public void setNAME(String name){
+    NAME = name;
+  }
+
+  public String getNAME(){
+        return NAME;
+  }
 
     public void draw() { // for override it for clones and sprites
     }
 
     public void start() { // start the thread
-        if (!thread.isAlive()) thread.start();
-    }
-
-    public void stop() { // stop the thread
-        try {
-            if (thread.isAlive()) thread.join(); // End thread safetly
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (!thread.isAlive() && !isStarted){
+            thread.start();
+            isStarted = true;
         }
     }
 
+    public void stop() { // stop the thread
+        if (thread.isAlive()) thread.interrupt(); // End thread safety
+    }
+
     @Override
-    public void run() { // for override it for clones and sprites
+    public void run() { // for override it for clones and sprites not throwable for simplify use cases
     }
 
     // ====================================== Sprite folder research
@@ -309,21 +321,21 @@ public abstract class Sprite implements Runnable {
     }
 
     public void ifOnEdgeBounce() { // bounce on edge of the screen
-        if (x + spriteWidth / 2 > myParent.width) {
+        if (x + spriteWidth / 2 + hitboxW> myParent.width) {
             pointInDirection(180 - direction);
-            setXTo(myParent.width - spriteWidth / 2);
+            setXTo(myParent.width - spriteWidth / 2 - hitboxW);
         }
-        if (x - spriteWidth / 2 < 0) {
+        if (x - spriteWidth / 2 - hitboxW < 0) {
             pointInDirection(180 - direction);
-            setXTo(spriteWidth / 2);
+            setXTo(spriteWidth / 2 + hitboxW);
         }
-        if (y + spriteHeight / 2 > myParent.height) {
+        if (y + spriteHeight / 2  + hitboxH > myParent.height) {
             pointInDirection(direction * -1);
-            setYTo(myParent.height - spriteHeight / 2);
+            setYTo(myParent.height - spriteHeight / 2 - hitboxH );
         }
-        if (y - spriteHeight / 2 < 0) {
+        if (y - spriteHeight / 2 - hitboxH < 0) {
             pointInDirection(direction * -1);
-            setYTo(spriteHeight / 2);
+            setYTo(spriteHeight / 2 + hitboxH );
         }
         direction = direction % -360;
     }
@@ -588,23 +600,26 @@ public abstract class Sprite implements Runnable {
     // behind the sprite
     // ------------------------------------------------------------------
 
-    public boolean touch(int col) { // call this boolean for testing if touching color
-        int l = (int) (spriteWidth);
-        int h = (int) (spriteHeight);
-        boolean colorTouched = false;
+    public boolean touch(int colorTouched) { // call this boolean for testing if touching color
+        int l = (int) (spriteWidth + hitboxW*2);
+        int h = (int) (spriteHeight + hitboxH*2);
         for (int i = 0; i < l; i++) {
             for (int j = 0; j < h; j++) { // for only if the sprite has a color at this point
-                if (myParent.get((int) (x + i - l / 2), (int) (y + j - h / 2)) == col && display) {
-                    colorTouched = true;
+                if (display && myParent.get((int) (x + i - l / 2), (int) (y + j - h / 2)) == colorTouched) {
+                    return true;
                 }
             }
         }
-
         // if the color is present into the list of colors stored
-        return colorTouched;
+        return false;
     }
 
+    // show the hitbox 4 points
     public void showHitbox() {
+        showHitbox(0);
+    }
+
+    public void showHitbox(int color) {
 
         // size
         float hL = spriteWidth / 2 + hitboxW; // for changing the hitbox size
@@ -635,6 +650,7 @@ public abstract class Sprite implements Runnable {
                 - hH * PApplet.cos(PApplet.radians(directionSprite1));
 
         myParent.push();
+        myParent.stroke(color);
         myParent.strokeWeight(4);
         myParent.point(cx1, cy1);
         myParent.point(cx2, cy2);
@@ -711,17 +727,6 @@ public abstract class Sprite implements Runnable {
         float[] otherYy = {cyother1, cyother2, cyother3, cyother4};
 
         boolean returnTouch = false;
-        /*
-         * if (showHitbox) {
-         * myParent.push();
-         * myParent.strokeWeight(10);
-         * myParent.point(cx1, cy1);
-         * myParent.point(cx2, cy2);
-         * myParent.point(cx3, cy3);
-         * myParent.point(cx4, cy4);
-         * myParent.pop();
-         * }
-         */
 
         for (int i = 0; i < 4; i++) {
             float mx = spriteXx[i] - xx;
@@ -833,33 +838,47 @@ public abstract class Sprite implements Runnable {
 
     // -----------Touch------------------------------------------------------------------
     public boolean touch(ArrayList<? extends Sprite> listA) {
-        for (int i = listA.size() - 1; i >= 0; i--) { // call la méthode "draw" de l'interface
-            if (listA.get(i) == this) {
-                continue; // skip the actual clone, no need for detecting him self
-            }
-
-            if (listA.get(i).touch(this) && listA.get(i) != this) {
-                return true; // The clone from listA touches the sprite, avoid himself
-            }
-        }
-        return false; // No collision detected
+        return touch(listA, this);
     }
-
 
     public boolean touch(ArrayList<? extends Sprite> listA, Sprite sp) {
-        int indexActuel = listA.indexOf(sp);
+       // int indexActuel = listA.indexOf(sp);
         for (int i = listA.size() - 1; i >= 0; i--) { // call la méthode "draw" de l'interface
-            if (listA.get(i) == sp) {
-                continue; // skip the actual clone, no need for detecting him self
-            }
-
-            if (listA.get(i).touch(sp) && listA.get(i) != sp) {
+            if (listA.get(i) != sp && listA.get(i).touch(sp) ) {
                 return true; // The clone from listA touches the sprite, avoid himself
             }
         }
         return false; // No collision detected
     }
+
+
+    // beta when in the same array, clone name is detected
+    public boolean touch(ArrayList<? extends Sprite> listA, Sprite sp, String name) {
+        // int indexActuel = listA.indexOf(sp);
+        for (int i = listA.size() - 1; i >= 0; i--) { // call la méthode "draw" de l'interface
+            if (listA.get(i) != sp && listA.get(i).touch(sp) && listA.get(i).getNAME().equals(name) ) {
+                return true; // The clone from listA touches the sprite, avoid himself
+            }
+        }
+        return false; // No collision detected
+    }
+    // beta when in the same array, clone name is detected
+    public boolean touch(ArrayList<? extends Sprite> listA, String name) {
+        return touch(listA, this, name);
+    }
+
     // -----------------------------------------------------------------------------------
+
+    // ----------- return index of the clone position------------------------------------------------------------------
+
+    public int indexClone(ArrayList<? extends Sprite> listA){
+        return indexClone(listA,this);
+    }
+    public int indexClone(ArrayList<? extends Sprite> listA, Sprite sp){
+        return listA.indexOf(sp);
+    }
+    // -----------------------------------------------------------------------------------
+
 }
 
 // ========================================================================= END

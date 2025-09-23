@@ -1,7 +1,9 @@
 package R2mix.PScratch;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import processing.core.*;
 //====================================================================== SCENE =================================================================================
@@ -80,9 +82,6 @@ public class Stage {
     }
 
     public boolean keyIsPressed(String k) { // call this boolean for interact width keycoded
-        if (k.length() == 1) {  // for using keyIsPressed char in String way
-            keyIsPressed(k.charAt(0));
-        }
         // if array contain the keycode of the keyBoard, some aren't keycode but use string
         if (k.equals("upArrow") && keyStoredCoded.contains(38)) return true;
         else if (k.equals("leftArrow") && keyStoredCoded.contains(37)) return true;
@@ -98,8 +97,10 @@ public class Stage {
         else if (k.equals("delete") && keyStored.contains(PConstants.DELETE)) return true;
         else if (k.equals("caps lock") && keyStoredCoded.contains(20)) return true;
         else if (k.equals("return") && keyStored.contains(PConstants.RETURN)) return true;
+        else if (k.length() == 1)  return keyIsPressed(k.charAt(0));  // for using keyIsPressed char in String way
         else return false;
     }
+
 
     public void keyIsDown() { // call it into keyPressed void
         keyType();
@@ -113,11 +114,10 @@ public class Stage {
 
     public void keyIsUp() { // call it into keyReleased void and remove from arrays
         if (keyStored.contains(myParent.key) && myParent.key != PConstants.CODED)
-            keyStored.remove(myParent.key);
+            keyStored.remove(keyStored.indexOf(myParent.key));
         if (keyStoredCoded.contains((int) (myParent.keyCode)) && myParent.key == PConstants.CODED)
-            keyStoredCoded.remove(myParent.keyCode);
+            keyStoredCoded.remove(keyStoredCoded.indexOf((int) (myParent.keyCode)));
     }
-
     // -----------------------------------------------------------END of
     // KEY----------------------------------------------------------------------
 
@@ -133,6 +133,26 @@ public class Stage {
             }
         }
     }
+
+
+
+   public void sortClones(ArrayList<? extends Sprite> s, String parameterName, boolean reverse) {
+        Collections.sort(s, (s1, s2) -> {
+                    try {
+                        Field field = Sprite.class.getDeclaredField(parameterName);
+                        field.setAccessible(true);
+                        int result = Float.compare(field.getFloat(s1), field.getFloat(s2));
+                        return reverse ? -result : result;  // Inversion si reverse est true
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                        return 0;
+                    }
+                }
+
+        );
+    }
+
     // ---------------------------------------------------------- END clone system
     // ----------------------------------------------------------------
 
@@ -247,7 +267,8 @@ public class Stage {
     // alternate stage with a subfolder specification
     public Stage(PApplet theParent, String folder, String subFolder) {
         myParent = theParent;
-
+        PApplet.println(VERSION);
+        PApplet.println(WEBSITE);
         String dossierPrincipal = myParent.sketchPath() + "/data/";
         if (!subFolder.isEmpty()) dossierPrincipal += subFolder + "/";
 
@@ -287,7 +308,8 @@ public class Stage {
     // --------------------------------------------------------------
 
     public void switchBackdropTo(int c) {
-        backdrop = c;
+        backdrop = PApplet.abs(c);
+        backdrop = backdrop % stage.length;
     }
 
     public void nextBackdrop() {

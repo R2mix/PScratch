@@ -1,6 +1,7 @@
 package R2mix.PScratch;
 
 import java.io.File;
+
 import processing.core.PApplet;
 //sound lib
 import processing.sound.*;
@@ -15,7 +16,7 @@ public class Sounds {
     private Amplitude amplitude;
     public boolean openMic;
     // private float pitch = 1, volume = 1, pan = 0; //defaut sounds values
-    private float[] pitch, volume, pan;
+    public float[] pitch, volume, pan;
 
     private final Stage stageSprite;
     private final PApplet myParent;
@@ -61,26 +62,16 @@ public class Sounds {
         } catch (Exception e) {
             PApplet.println("!!---- Caution ! There is no SoundFolder at this name : " + folder + " ----!!");
         }
-        openMicrophone();
         clearSoundEffects();
     }
     // -----------------------------------------------------END import sounds
     // ---------------------------------------------------------------------
 
     public void openMicrophone() { // call it inside setup void
-        try {
-            input = new AudioIn(stageSprite.myParent, 0); // new default mic
-            input.start(); // start mic
-            amplitude = new Amplitude(stageSprite.myParent); // new analyser
-            amplitude.input(input); // attach input to analyzer
-            openMic = true;
-        } catch (Exception e) {
-            openMic = false;
-            PApplet.println("---!! no microphone detected  !!---");
-        }
+      openMicrophone(0);
     }
 
-    public void changeMicrophone(int nmbr) { // call it inside setup void
+    public void openMicrophone(int nmbr) { // call it inside setup void
         try {
             input = new AudioIn(stageSprite.myParent, nmbr); // new default mic
             input.start(); // start mic
@@ -91,6 +82,9 @@ public class Sounds {
             openMic = false;
             PApplet.println("---!! no microphone detected  !!---");
         }
+    }
+    public void listAllMicrophone(){
+        PApplet.printArray(Sound.list());
     }
 
     public float loudness() {
@@ -108,10 +102,11 @@ public class Sounds {
         if (sounds[numeroSon].channels() == 1)
             sounds[numeroSon].pan(pan[numeroSon]);
     }
+
     public void playSoundNoOverlap(int numeroSon) { // play a sound from 0 with pitch[i] value and volume value
-       if (!(sounds[numeroSon].isPlaying() && sounds[numeroSon].percent() < 100)) {
-           playSound(numeroSon);
-       }
+        if (!(sounds[numeroSon].isPlaying() && sounds[numeroSon].percent() < 100)) {
+            playSound(numeroSon);
+        }
     }
 
     public void loop(int numeroSon) { // play a sound from 0 with pitch[i] value and volume value
@@ -121,7 +116,7 @@ public class Sounds {
     }
 
     public void playSoundUntilDown(int numeroSon) { // wait the sound is over before go to the next code ling, better
-                                                    // using is into run void
+        // using is into run void
         playSound(numeroSon);
         while (sounds[numeroSon].isPlaying() && sounds[numeroSon].percent() < 100)
             myParent.delay(16);
@@ -173,7 +168,7 @@ public class Sounds {
     }
 
     public void changePitchEffectBy(float p, int s) { // change pitch[i] of a sound by changing it rate (like on
-                                                      // scratch)
+        // scratch)
         pitch[s] += p * 0.01;
         pitch[s] = PApplet.constrain(pitch[s], 0, 100);
         sounds[s].rate(pitch[s]);
@@ -237,6 +232,19 @@ public class Sounds {
         volume[s] = (float) (v * 0.01);
         volume[s] = PApplet.constrain(volume[s], 0, 1);
         sounds[s].amp(volume[s]);
+    }
+
+    public float getDuration(int s) {
+        return sounds[s].duration();
+    }
+
+    public float getActualTime(int s) {
+          return sounds[s].position();
+      //  return 0;
+    }
+
+    public boolean isPlaying(int s) {
+        return sounds[s].isPlaying();
     }
     // ----------------------------------------------------------------END OF SOUNDS
     // ---------------------------------------------------------------------------
